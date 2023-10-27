@@ -1,0 +1,82 @@
+.page-auth {
+    position: relative;
+    width: 100%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    
+    .container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+
+        .svg-holder {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            bottom: 0;
+            width: 100%;
+            height: 30%;
+
+            svg { position: absolute; width: auto; height: 80%; }
+        }
+
+        .form-container {
+            display: flex; justify-content: center;
+            width: 100%;
+            padding: 24px;
+            background: #F6F6F620;
+            box-shadow: 0 0 8px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(3px);
+            
+            .form {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                gap: 24px;
+                button { width: 100%; }
+
+                .form-inputs, .form-buttons {
+                    display: flex; flex-direction: column;
+                    width: 100%; gap: 16px;
+                }
+                .form-inputs { text-align: right; }
+                .form-buttons { align-items: center; }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 330px) {
+        .container {
+            .form-container {
+                margin-top: 10px;
+                max-width: 320px;
+                border-radius: 10px;
+            }
+        }
+    }
+
+    @media only screen and (min-width: 600px) {
+        .container {
+            position: relative;
+            display: grid;
+            grid-template-columns: 0.4fr 0.6fr;
+            justify-items: center;
+            max-width: 1040px;
+
+            .svg-holder {
+                position: relative; svg { width: 80%; height: auto; }
+            }
+            .form-container { margin-top: 0; }
+        }
+    }
+}

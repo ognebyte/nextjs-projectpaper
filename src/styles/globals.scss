@@ -1,0 +1,98 @@
+* { margin: 0; padding: 0; box-sizing: border-box; color: $primary-color;}
+body {
+    position: relative;
+    min-width: 280px; width: 100vw;
+    min-height: 600px; height: 100vh;
+    background-color: $secondary-color;
+}
+
+.body-background {
+    position: absolute;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: -100;
+}
+
+
+.divider-horizontal { width: 80%; height: 2px; border-radius: 10px; background-color: $gray; }
+
+input {
+    width: 100%; height: 36px;
+    padding: 0 10px;
+    background-color: $secondary-color;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
+    &::placeholder { color: color-mix(in srgb, $primary-color, #ffffff 50%); }
+    &:focus { outline: 2px solid $gray; }
+}
+
+button { border: none; background-color: transparent; }
+
+.button-default {
+    min-width: 100px; height: 36px;
+    background-color: $primary-color;
+    color: $secondary-color;
+    border: none;
+    border-radius: 10px;
+    transition: all ease 0.3s;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+@media (hover: hover) {
+    .button-default { 
+        background-color: $gray;
+        &:hover {
+            background-color: $primary-color;
+            transform: scale(1.05);
+        }
+    }
+}
+
+
+// @media only screen and (max-width: 300px) {
+    
+// }
+
+// @media only screen and (min-width: 600px) {
+//     /* For tablets: */
+//     input {
+//         width: auto;
+//         max-width: 300px; height: 30px;
+//     }
+// }
+
+// @media only screen and (min-width: 768px) {
+//     /* For desktop: */
+
+// }
+
+
+@font-face {
+    font-family: "FinlandicaMedium";
+    src: local("FinlandicaMedium"), url("../assets/fonts/Finlandica/Finlandica-Medium.ttf");
+}
+
+@font-face {
+    font-family: "FinlandicaRegular";
+    src: local("FinlandicaRegular"), url("../assets/fonts/Finlandica/Finlandica-Regular.ttf");
+}
+
+@font-face {
+    font-family: "OstrovskyBold";
+    src: local("OstrovskyBold"), url("../assets/fonts/Ostrovsky/Ostrovsky-Bold_0.otf");
+}
+
+@font-face {
+    font-family: "HumaneBold";
+    src: local("HumaneBold"), url("../assets/fonts/HUMANE/OpenType-TT/Humane-Bold.ttf");
+}
+
+h1 { font-family: 'OstrovskyBold'; }
+
+a, button, input {
+    font-family: 'FinlandicaMedium';
+    font-size: 1em;
+} 
