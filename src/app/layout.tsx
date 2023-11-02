@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import '@/styles/index.scss'
+import App from './app'
+import ReduxProvider from '@/app/provider'
 
 
 export const metadata: Metadata = {
@@ -11,10 +13,15 @@ export default function RootLayout({
 }: {
     children: React.ReactNode
 }) {
+
     return (
         <html lang="en">
             <body>
-                {children}
+                <ReduxProvider>
+                    <App>
+                        {children}
+                    </App>
+                </ReduxProvider>
             </body>
         </html>
     )

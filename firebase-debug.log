@@ -1,0 +1,474 @@
+[debug] [2023-10-29T00:42:04.638Z] ----------------------------------------------------------------------
+[debug] [2023-10-29T00:42:04.644Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ayhal\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --import=./fb-emulator --export-on-exit
+[debug] [2023-10-29T00:42:04.645Z] CLI Version:   12.7.0
+[debug] [2023-10-29T00:42:04.646Z] Platform:      win32
+[debug] [2023-10-29T00:42:04.647Z] Node Version:  v18.17.1
+[debug] [2023-10-29T00:42:04.649Z] Time:          Sun Oct 29 2023 10:42:04 GMT+1000 (Владивосток, стандартное время)
+[debug] [2023-10-29T00:42:04.649Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-29T00:42:04.657Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2023-10-29T00:42:04.972Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-29T00:42:04.973Z] > authorizing via signed-in user (ayhalvas2001@gmail.com)
+[debug] [2023-10-29T00:42:05.225Z] java version "21.0.1" 2023-10-17 LTS
+
+[debug] [2023-10-29T00:42:05.226Z] Java(TM) SE Runtime Environment (build 21.0.1+12-LTS-29)
+Java HotSpot(TM) 64-Bit Server VM (build 21.0.1+12-LTS-29, mixed mode, sharing)
+
+[debug] [2023-10-29T00:42:05.280Z] Parsed Java major version: 21
+[info] i  emulators: Starting emulators: auth, functions, firestore {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, functions, firestore"}}
+[debug] [2023-10-29T00:42:05.312Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-10-29T00:42:05.313Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-10-29T00:42:05.313Z] [firestore] Firestore Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-10-29T00:42:05.314Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-10-29T00:42:05.314Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2023-10-29T00:42:05.336Z] [hub] writing locator at C:\Users\ayhal\AppData\Local\Temp\hub-kanban-projectpaper.json
+[debug] [2023-10-29T00:42:05.353Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-10-29T00:42:05.353Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-10-29T00:42:05.354Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: database, hosting, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mdatabase, hosting, pubsub, storage\u001b[22m"}}
+[debug] [2023-10-29T00:42:05.360Z] defaultcredentials: writing to file C:\Users\ayhal\AppData\Roaming\firebase\ayhalvas2001_gmail_com_application_default_credentials.json
+[debug] [2023-10-29T00:42:05.364Z] Setting GAC to C:\Users\ayhal\AppData\Roaming\firebase\ayhalvas2001_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\ayhal\\AppData\\Roaming\\firebase\\ayhalvas2001_gmail_com_application_default_credentials.json"}}
+[debug] [2023-10-29T00:42:05.366Z] > refreshing access token with scopes: []
+[debug] [2023-10-29T00:42:05.368Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-10-29T00:42:05.368Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-10-29T00:42:05.690Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2023-10-29T00:42:05.690Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2023-10-29T00:42:05.811Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-10-29T00:42:05.811Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-10-29T00:42:05.822Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/kanban-projectpaper/adminSdkConfig [none]
+[debug] [2023-10-29T00:42:06.525Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/kanban-projectpaper/adminSdkConfig 200
+[debug] [2023-10-29T00:42:06.525Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/kanban-projectpaper/adminSdkConfig {"projectId":"kanban-projectpaper","storageBucket":"kanban-projectpaper.appspot.com"}
+[debug] [2023-10-29T00:42:06.549Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-10-29T00:42:06.549Z] Ignoring unsupported arg: single_project_mode_error {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: single_project_mode_error"}}
+[debug] [2023-10-29T00:42:06.549Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\ayhal\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.18.2.jar","--host","127.0.0.1","--port",8080,"--websocket_port",9150,"--project_id","kanban-projectpaper","--rules","C:\\Users\\ayhal\\Documents\\GitHub\\nextjs-projectpaper\\firestore.rules","--single_project_mode",true,"--functions_emulator","127.0.0.1:5001"],"optionalArgs":["port","webchannel_port","host","rules","websocket_port","functions_emulator","seed_from_export","project_id","single_project_mode"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\ayhal\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.18.2.jar\",\"--host\",\"127.0.0.1\",\"--port\",8080,\"--websocket_port\",9150,\"--project_id\",\"kanban-projectpaper\",\"--rules\",\"C:\\\\Users\\\\ayhal\\\\Documents\\\\GitHub\\\\nextjs-projectpaper\\\\firestore.rules\",\"--single_project_mode\",true,\"--functions_emulator\",\"127.0.0.1:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"websocket_port\",\"functions_emulator\",\"seed_from_export\",\"project_id\",\"single_project_mode\"],\"joinArgs\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[info] +  firestore: Firestore Emulator UI websocket is running on 9150. {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator UI websocket is running on 9150."}}
+[debug] [2023-10-29T00:42:29.450Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-10-29T00:42:29.451Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-10-29T00:42:29.451Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\ayhal\\.cache\\firebase\\emulators\\ui-v1.11.7\\server\\server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\ayhal\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.11.7\\\\server\\\\server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2023-10-29T00:42:29.730Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2023-10-29T00:42:29.731Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[info] i  functions: Watching "C:\Users\ayhal\Documents\GitHub\nextjs-projectpaper\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\ayhal\\Documents\\GitHub\\nextjs-projectpaper\\functions\" for Cloud Functions..."}}
+[debug] [2023-10-29T00:42:29.756Z] Validating nodejs source
+[debug] [2023-10-29T00:42:34.239Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[error] !!  functions: Failed to load function definition from source: FirebaseError: There was an error reading functions\package.json:
+
+ functions\lib\index.js does not exist, can't deploy Cloud Functions {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: There was an error reading functions\\package.json:\n\n functions\\lib\\index.js does not exist, can't deploy Cloud Functions"}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Functions      │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Firestore      │ 127.0.0.1:8080 │ http://127.0.0.1:4000/firestore │
+└────────────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500, 9150
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2023-10-29T00:45:44.566Z] >>> [apiv2][query] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast [none]
+[debug] [2023-10-29T00:45:44.567Z] >>> [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"eventId":"75a0c162-48bf-4422-a81c-eba081c7a2b0","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/kanban-projectpaper","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2023-10-29T00:45:44.562Z","data":{"uid":"n10AWq6eRYGPClnT6jcCi0qLsjtq","email":"qwe@qwe.sad","emailVerified":false,"displayName":"","photoURL":"","metadata":{"creationTime":"2023-10-29T00:45:44.558Z","lastSignInTime":"2023-10-29T00:45:44.558Z"},"customClaims":{},"providerData":[{"providerId":"password","email":"qwe@qwe.sad","federatedId":"qwe@qwe.sad","rawId":"qwe@qwe.sad","displayName":"","photoUrl":""}],"mfaInfo":[]}}
+[debug] [2023-10-29T00:45:44.593Z] <<< [apiv2][status] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast 200
+[debug] [2023-10-29T00:45:44.593Z] <<< [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"status":"multicast_acknowledged"}
+[debug] [2023-10-29T02:05:32.588Z] >>> [apiv2][query] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast [none]
+[debug] [2023-10-29T02:05:32.589Z] >>> [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"eventId":"333944e8-ce62-44b2-989a-8af4b6a91fc1","eventType":"providers/firebase.auth/eventTypes/user.delete","resource":{"name":"projects/kanban-projectpaper","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2023-10-29T02:05:32.587Z","data":{"uid":"n10AWq6eRYGPClnT6jcCi0qLsjtq","email":"qwe@qwe.sad","emailVerified":false,"displayName":"","photoURL":"","metadata":{"creationTime":"2023-10-29T00:45:44.558Z","lastSignInTime":"2023-10-29T02:05:15.695Z"},"customClaims":{},"providerData":[{"providerId":"password","email":"qwe@qwe.sad","federatedId":"qwe@qwe.sad","rawId":"qwe@qwe.sad","displayName":"","photoUrl":""}],"mfaInfo":[]}}
+[debug] [2023-10-29T02:05:32.604Z] <<< [apiv2][status] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast 200
+[debug] [2023-10-29T02:05:32.604Z] <<< [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"status":"multicast_acknowledged"}
+[debug] [2023-10-30T12:57:20.428Z] ----------------------------------------------------------------------
+[debug] [2023-10-30T12:57:20.435Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ayhal\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --import=./fb-emulator --export-on-exit
+[debug] [2023-10-30T12:57:20.437Z] CLI Version:   12.7.0
+[debug] [2023-10-30T12:57:20.438Z] Platform:      win32
+[debug] [2023-10-30T12:57:20.438Z] Node Version:  v18.17.1
+[debug] [2023-10-30T12:57:20.441Z] Time:          Mon Oct 30 2023 22:57:20 GMT+1000 (Владивосток, стандартное время)
+[debug] [2023-10-30T12:57:20.441Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-30T12:57:20.458Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2023-10-30T12:57:20.956Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-30T12:57:20.957Z] > authorizing via signed-in user (ayhalvas2001@gmail.com)
+[debug] [2023-10-30T12:57:21.342Z] java version "21.0.1" 2023-10-17 LTS
+
+[debug] [2023-10-30T12:57:21.343Z] Java(TM) SE Runtime Environment (build 21.0.1+12-LTS-29)
+Java HotSpot(TM) 64-Bit Server VM (build 21.0.1+12-LTS-29, mixed mode, sharing)
+
+[debug] [2023-10-30T12:57:21.395Z] Parsed Java major version: 21
+[info] i  emulators: Starting emulators: auth, functions, firestore {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, functions, firestore"}}
+[debug] [2023-10-30T12:57:21.423Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-10-30T12:57:21.424Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-10-30T12:57:21.424Z] [firestore] Firestore Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-10-30T12:57:21.424Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-10-30T12:57:21.425Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project kanban-projectpaper. This may result in unexpected behavior. 
+[debug] [2023-10-30T12:57:21.448Z] [hub] writing locator at C:\Users\ayhal\AppData\Local\Temp\hub-kanban-projectpaper.json
+[debug] [2023-10-30T12:57:21.471Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-10-30T12:57:21.472Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-10-30T12:57:21.472Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: database, hosting, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mdatabase, hosting, pubsub, storage\u001b[22m"}}
+[debug] [2023-10-30T12:57:21.477Z] defaultcredentials: writing to file C:\Users\ayhal\AppData\Roaming\firebase\ayhalvas2001_gmail_com_application_default_credentials.json
+[debug] [2023-10-30T12:57:21.483Z] Setting GAC to C:\Users\ayhal\AppData\Roaming\firebase\ayhalvas2001_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\ayhal\\AppData\\Roaming\\firebase\\ayhalvas2001_gmail_com_application_default_credentials.json"}}
+[debug] [2023-10-30T12:57:21.485Z] > refreshing access token with scopes: []
+[debug] [2023-10-30T12:57:21.487Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-10-30T12:57:21.487Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-10-30T12:57:23.686Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-10-30T12:57:23.687Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-10-30T12:57:23.705Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/kanban-projectpaper/adminSdkConfig [none]
+[debug] [2023-10-30T12:57:24.370Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/kanban-projectpaper/adminSdkConfig 200
+[debug] [2023-10-30T12:57:24.370Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/kanban-projectpaper/adminSdkConfig {"projectId":"kanban-projectpaper","storageBucket":"kanban-projectpaper.appspot.com"}
+[debug] [2023-10-30T12:57:24.410Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-10-30T12:57:24.410Z] Ignoring unsupported arg: single_project_mode_error {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: single_project_mode_error"}}
+[debug] [2023-10-30T12:57:24.412Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\ayhal\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.18.2.jar","--host","127.0.0.1","--port",8080,"--websocket_port",9150,"--project_id","kanban-projectpaper","--rules","C:\\Users\\ayhal\\Documents\\GitHub\\nextjs-projectpaper\\firestore.rules","--single_project_mode",true,"--functions_emulator","127.0.0.1:5001"],"optionalArgs":["port","webchannel_port","host","rules","websocket_port","functions_emulator","seed_from_export","project_id","single_project_mode"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\ayhal\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.18.2.jar\",\"--host\",\"127.0.0.1\",\"--port\",8080,\"--websocket_port\",9150,\"--project_id\",\"kanban-projectpaper\",\"--rules\",\"C:\\\\Users\\\\ayhal\\\\Documents\\\\GitHub\\\\nextjs-projectpaper\\\\firestore.rules\",\"--single_project_mode\",true,\"--functions_emulator\",\"127.0.0.1:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"websocket_port\",\"functions_emulator\",\"seed_from_export\",\"project_id\",\"single_project_mode\"],\"joinArgs\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[debug] [2023-10-30T12:57:26.335Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2023-10-30T12:57:26.336Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] +  firestore: Firestore Emulator UI websocket is running on 9150. {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator UI websocket is running on 9150."}}
+[debug] [2023-10-30T12:58:00.119Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-10-30T12:58:00.121Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-10-30T12:58:00.121Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\ayhal\\.cache\\firebase\\emulators\\ui-v1.11.7\\server\\server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\ayhal\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.11.7\\\\server\\\\server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2023-10-30T12:58:00.558Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2023-10-30T12:58:00.559Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[info] i  functions: Watching "C:\Users\ayhal\Documents\GitHub\nextjs-projectpaper\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\ayhal\\Documents\\GitHub\\nextjs-projectpaper\\functions\" for Cloud Functions..."}}
+[debug] [2023-10-30T12:58:00.711Z] Validating nodejs source
+[debug] [2023-10-30T12:58:05.880Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[error] !!  functions: Failed to load function definition from source: FirebaseError: There was an error reading functions\package.json:
+
+ functions\lib\index.js does not exist, can't deploy Cloud Functions {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: There was an error reading functions\\package.json:\n\n functions\\lib\\index.js does not exist, can't deploy Cloud Functions"}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Functions      │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Firestore      │ 127.0.0.1:8080 │ http://127.0.0.1:4000/firestore │
+└────────────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500, 9150
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2023-10-30T12:59:22.602Z] >>> [apiv2][query] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast [none]
+[debug] [2023-10-30T12:59:22.603Z] >>> [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"eventId":"d67626cf-2a64-4589-a049-942f3c931e14","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/kanban-projectpaper","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2023-10-30T12:59:22.601Z","data":{"uid":"NOnEW6z86fjV7Dnm5Tyxc0tSOyOe","email":"qwe@qwe.qwe","emailVerified":false,"displayName":"qwe","photoURL":"","metadata":{"creationTime":"2023-10-30T12:59:22.596Z","lastSignInTime":"2023-10-30T12:59:22.596Z"},"customClaims":{},"providerData":[{"providerId":"password","email":"qwe@qwe.qwe","federatedId":"qwe@qwe.qwe","rawId":"qwe@qwe.qwe","displayName":"qwe","photoUrl":""}],"mfaInfo":[]}}
+[debug] [2023-10-30T12:59:22.622Z] <<< [apiv2][status] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast 200
+[debug] [2023-10-30T12:59:22.624Z] <<< [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"status":"multicast_acknowledged"}
+[info] i  To reset the password for qwe@qwe.qwe, follow this link: http://127.0.0.1:9099/emulator/action?mode=resetPassword&lang=en&oobCode=uXyicdxc2aBnJT470nMV2xUhR5KoAD6YmlVg4LOYPs-u7ZmS7wDXUs&apiKey=fake-api-key&newPassword=NEW_PASSWORD_HERE {"metadata":{"emulator":{"name":"auth"},"message":"To reset the password for qwe@qwe.qwe, follow this link: http://127.0.0.1:9099/emulator/action?mode=resetPassword&lang=en&oobCode=uXyicdxc2aBnJT470nMV2xUhR5KoAD6YmlVg4LOYPs-u7ZmS7wDXUs&apiKey=fake-api-key&newPassword=NEW_PASSWORD_HERE"}}
+[debug] [2023-10-30T16:22:30.035Z] >>> [apiv2][query] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast [none]
+[debug] [2023-10-30T16:22:30.035Z] >>> [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"eventId":"7f742851-1148-491f-92c0-02a41d1dacd9","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/kanban-projectpaper","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2023-10-30T16:22:30.032Z","data":{"uid":"TsfuIQbZjYUarKSr4QsYIgIyekOX","email":"ayhalvas2001@gmail.com","emailVerified":false,"displayName":"","photoURL":"","metadata":{"creationTime":"2023-10-30T16:22:30.030Z","lastSignInTime":"2023-10-30T16:22:30.030Z"},"customClaims":{},"providerData":[{"providerId":"password","email":"ayhalvas2001@gmail.com","federatedId":"ayhalvas2001@gmail.com","rawId":"ayhalvas2001@gmail.com","displayName":"","photoUrl":""}],"mfaInfo":[]}}
+[debug] [2023-10-30T16:22:30.056Z] <<< [apiv2][status] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast 200
+[debug] [2023-10-30T16:22:30.057Z] <<< [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"status":"multicast_acknowledged"}
+[info] i  To reset the password for ayhalvas2001@gmail.com, follow this link: http://127.0.0.1:9099/emulator/action?mode=resetPassword&lang=en&oobCode=UxqX522HD_SH2-e9x5iHrvpxu7bCbiZdwC8RzIFSOfYigEbqLhcr9T&apiKey=fake-api-key&newPassword=NEW_PASSWORD_HERE {"metadata":{"emulator":{"name":"auth"},"message":"To reset the password for ayhalvas2001@gmail.com, follow this link: http://127.0.0.1:9099/emulator/action?mode=resetPassword&lang=en&oobCode=UxqX522HD_SH2-e9x5iHrvpxu7bCbiZdwC8RzIFSOfYigEbqLhcr9T&apiKey=fake-api-key&newPassword=NEW_PASSWORD_HERE"}}
+[debug] [2023-10-30T16:29:37.800Z] >>> [apiv2][query] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast [none]
+[debug] [2023-10-30T16:29:37.801Z] >>> [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"eventId":"d0803d19-e25a-4008-af8f-88518f989255","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/kanban-projectpaper","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2023-10-30T16:29:37.800Z","data":{"uid":"OzNFj836dhKveoROA3Tz5KvrKVzO","email":"asd@asd.asd","emailVerified":false,"metadata":{"creationTime":"2023-10-30T16:29:37.799Z","lastSignInTime":"2023-10-30T16:29:37.799Z"},"customClaims":{},"providerData":[{"providerId":"password","email":"asd@asd.asd","federatedId":"asd@asd.asd","rawId":"asd@asd.asd"}]}}
+[debug] [2023-10-30T16:29:37.812Z] <<< [apiv2][status] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast 200
+[debug] [2023-10-30T16:29:37.812Z] <<< [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"status":"multicast_acknowledged"}
+[debug] [2023-10-30T16:31:15.818Z] >>> [apiv2][query] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast [none]
+[debug] [2023-10-30T16:31:15.819Z] >>> [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"eventId":"9f03312a-01ce-4fa2-bdcf-8e17b91b0e69","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/kanban-projectpaper","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2023-10-30T16:31:15.818Z","data":{"uid":"R0riD0JEXyZ8damReRZUa1KQKWgy","email":"asdas@as.asd","emailVerified":false,"metadata":{"creationTime":"2023-10-30T16:31:15.817Z","lastSignInTime":"2023-10-30T16:31:15.817Z"},"customClaims":{},"providerData":[{"providerId":"password","email":"asdas@as.asd","federatedId":"asdas@as.asd","rawId":"asdas@as.asd"}]}}
+[debug] [2023-10-30T16:31:15.830Z] <<< [apiv2][status] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast 200
+[debug] [2023-10-30T16:31:15.831Z] <<< [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"status":"multicast_acknowledged"}
+[debug] [2023-10-30T16:31:42.432Z] >>> [apiv2][query] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast [none]
+[debug] [2023-10-30T16:31:42.433Z] >>> [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"eventId":"50934e0c-9058-403c-b4e0-d9a86977d8d9","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/kanban-projectpaper","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2023-10-30T16:31:42.432Z","data":{"uid":"fLQpAwztzr655IHUHjrt1GYCH5P4","email":"asd@asd.asda","emailVerified":false,"metadata":{"creationTime":"2023-10-30T16:31:42.432Z","lastSignInTime":"2023-10-30T16:31:42.432Z"},"customClaims":{},"providerData":[{"providerId":"password","email":"asd@asd.asda","federatedId":"asd@asd.asda","rawId":"asd@asd.asda"}]}}
+[debug] [2023-10-30T16:31:42.441Z] <<< [apiv2][status] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast 200
+[debug] [2023-10-30T16:31:42.441Z] <<< [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"status":"multicast_acknowledged"}
+[debug] [2023-10-30T16:55:05.268Z] >>> [apiv2][query] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast [none]
+[debug] [2023-10-30T16:55:05.268Z] >>> [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"eventId":"4cec67b6-3db3-486b-8574-42b5526005a2","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/kanban-projectpaper","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2023-10-30T16:55:05.267Z","data":{"uid":"KVv5GvuBDgcDYWuSC3eJraAxYFcU","email":"asd@asd.asdqw","emailVerified":false,"metadata":{"creationTime":"2023-10-30T16:55:05.266Z","lastSignInTime":"2023-10-30T16:55:05.266Z"},"customClaims":{},"providerData":[{"providerId":"password","email":"asd@asd.asdqw","federatedId":"asd@asd.asdqw","rawId":"asd@asd.asdqw"}]}}
+[debug] [2023-10-30T16:55:05.281Z] <<< [apiv2][status] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast 200
+[debug] [2023-10-30T16:55:05.281Z] <<< [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"status":"multicast_acknowledged"}
+[info] i  To reset the password for asd@asd.asd, follow this link: http://127.0.0.1:9099/emulator/action?mode=resetPassword&lang=en&oobCode=NlagPvtC2ZpVbnbQ2FpFLXISM5Flbu7nGNgtzUk2KZOkAPJ4JB5UlL&apiKey=fake-api-key&newPassword=NEW_PASSWORD_HERE {"metadata":{"emulator":{"name":"auth"},"message":"To reset the password for asd@asd.asd, follow this link: http://127.0.0.1:9099/emulator/action?mode=resetPassword&lang=en&oobCode=NlagPvtC2ZpVbnbQ2FpFLXISM5Flbu7nGNgtzUk2KZOkAPJ4JB5UlL&apiKey=fake-api-key&newPassword=NEW_PASSWORD_HERE"}}
+[debug] [2023-10-30T16:57:51.261Z] >>> [apiv2][query] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast [none]
+[debug] [2023-10-30T16:57:51.261Z] >>> [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"eventId":"520e28ca-abc9-4d67-97d0-a3236eeb94e9","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/kanban-projectpaper","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2023-10-30T16:57:51.261Z","data":{"uid":"WYUELZffX4V52aBOqKROgvC1B5e2","email":"asdsa@ads.asd","emailVerified":false,"metadata":{"creationTime":"2023-10-30T16:57:51.259Z","lastSignInTime":"2023-10-30T16:57:51.259Z"},"customClaims":{},"providerData":[{"providerId":"password","email":"asdsa@ads.asd","federatedId":"asdsa@ads.asd","rawId":"asdsa@ads.asd"}]}}
+[debug] [2023-10-30T16:57:51.277Z] <<< [apiv2][status] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast 200
+[debug] [2023-10-30T16:57:51.278Z] <<< [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"status":"multicast_acknowledged"}
+[info] i  To reset the password for asd@asd.asd, follow this link: http://127.0.0.1:9099/emulator/action?mode=resetPassword&lang=en&oobCode=3GrmVU7K56G2lvIfkNDJGpM2pS11a_n-4JRnxbvuwJTSjARMbSKXOF&apiKey=fake-api-key&newPassword=NEW_PASSWORD_HERE {"metadata":{"emulator":{"name":"auth"},"message":"To reset the password for asd@asd.asd, follow this link: http://127.0.0.1:9099/emulator/action?mode=resetPassword&lang=en&oobCode=3GrmVU7K56G2lvIfkNDJGpM2pS11a_n-4JRnxbvuwJTSjARMbSKXOF&apiKey=fake-api-key&newPassword=NEW_PASSWORD_HERE"}}
+[info] i  To reset the password for asd@asd.asd, follow this link: http://127.0.0.1:9099/emulator/action?mode=resetPassword&lang=en&oobCode=x0P0b0lr-OT_uUBaiKkHVfublJ79iaZ7R26ch_fVnm0ihqIrzs7-k7&apiKey=fake-api-key&newPassword=NEW_PASSWORD_HERE {"metadata":{"emulator":{"name":"auth"},"message":"To reset the password for asd@asd.asd, follow this link: http://127.0.0.1:9099/emulator/action?mode=resetPassword&lang=en&oobCode=x0P0b0lr-OT_uUBaiKkHVfublJ79iaZ7R26ch_fVnm0ihqIrzs7-k7&apiKey=fake-api-key&newPassword=NEW_PASSWORD_HERE"}}
+[debug] [2023-11-01T12:09:25.564Z] ----------------------------------------------------------------------
+[debug] [2023-11-01T12:09:25.568Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ayhal\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --import=./fb-emulator --export-on-exit
+[debug] [2023-11-01T12:09:25.570Z] CLI Version:   12.7.0
+[debug] [2023-11-01T12:09:25.570Z] Platform:      win32
+[debug] [2023-11-01T12:09:25.571Z] Node Version:  v18.17.1
+[debug] [2023-11-01T12:09:25.578Z] Time:          Wed Nov 01 2023 22:09:25 GMT+1000 (Владивосток, стандартное время)
+[debug] [2023-11-01T12:09:25.578Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-11-01T12:09:25.585Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2023-11-01T12:09:25.894Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-11-01T12:09:25.894Z] > authorizing via signed-in user (ayhalvas2001@gmail.com)
+[debug] [2023-11-01T12:09:26.370Z] java version "21.0.1" 2023-10-17 LTS
+
+[debug] [2023-11-01T12:09:26.371Z] Java(TM) SE Runtime Environment (build 21.0.1+12-LTS-29)
+Java HotSpot(TM) 64-Bit Server VM (build 21.0.1+12-LTS-29, mixed mode, sharing)
+
+[debug] [2023-11-01T12:09:26.428Z] Parsed Java major version: 21
+[info] i  emulators: Starting emulators: auth, functions, firestore {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, functions, firestore"}}
+[debug] [2023-11-01T12:09:26.455Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-11-01T12:09:26.455Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-11-01T12:09:26.455Z] [firestore] Firestore Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-11-01T12:09:26.456Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-11-01T12:09:26.456Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project kanban-projectpaper. This may result in unexpected behavior. 
+[debug] [2023-11-01T12:09:26.494Z] [hub] writing locator at C:\Users\ayhal\AppData\Local\Temp\hub-kanban-projectpaper.json
+[debug] [2023-11-01T12:09:26.536Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-11-01T12:09:26.536Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-11-01T12:09:26.537Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: database, hosting, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mdatabase, hosting, pubsub, storage\u001b[22m"}}
+[debug] [2023-11-01T12:09:26.545Z] defaultcredentials: writing to file C:\Users\ayhal\AppData\Roaming\firebase\ayhalvas2001_gmail_com_application_default_credentials.json
+[debug] [2023-11-01T12:09:26.555Z] Setting GAC to C:\Users\ayhal\AppData\Roaming\firebase\ayhalvas2001_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\ayhal\\AppData\\Roaming\\firebase\\ayhalvas2001_gmail_com_application_default_credentials.json"}}
+[debug] [2023-11-01T12:09:26.557Z] > refreshing access token with scopes: []
+[debug] [2023-11-01T12:09:26.562Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-11-01T12:09:26.562Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-11-01T12:09:27.188Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2023-11-01T12:09:27.188Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2023-11-01T12:09:27.445Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-11-01T12:09:27.445Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-11-01T12:09:27.460Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/kanban-projectpaper/adminSdkConfig [none]
+[debug] [2023-11-01T12:09:28.115Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/kanban-projectpaper/adminSdkConfig 200
+[debug] [2023-11-01T12:09:28.115Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/kanban-projectpaper/adminSdkConfig {"projectId":"kanban-projectpaper","storageBucket":"kanban-projectpaper.appspot.com"}
+[debug] [2023-11-01T12:09:28.142Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-11-01T12:09:28.143Z] Ignoring unsupported arg: single_project_mode_error {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: single_project_mode_error"}}
+[debug] [2023-11-01T12:09:28.143Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\ayhal\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.18.2.jar","--host","127.0.0.1","--port",8080,"--websocket_port",9150,"--project_id","kanban-projectpaper","--rules","C:\\Users\\ayhal\\Documents\\GitHub\\nextjs-projectpaper\\firestore.rules","--single_project_mode",true,"--functions_emulator","127.0.0.1:5001"],"optionalArgs":["port","webchannel_port","host","rules","websocket_port","functions_emulator","seed_from_export","project_id","single_project_mode"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\ayhal\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.18.2.jar\",\"--host\",\"127.0.0.1\",\"--port\",8080,\"--websocket_port\",9150,\"--project_id\",\"kanban-projectpaper\",\"--rules\",\"C:\\\\Users\\\\ayhal\\\\Documents\\\\GitHub\\\\nextjs-projectpaper\\\\firestore.rules\",\"--single_project_mode\",true,\"--functions_emulator\",\"127.0.0.1:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"websocket_port\",\"functions_emulator\",\"seed_from_export\",\"project_id\",\"single_project_mode\"],\"joinArgs\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[info] +  firestore: Firestore Emulator UI websocket is running on 9150. {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator UI websocket is running on 9150."}}
+[debug] [2023-11-01T12:09:57.988Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-11-01T12:09:57.989Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-11-01T12:09:57.990Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\ayhal\\.cache\\firebase\\emulators\\ui-v1.11.7\\server\\server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\ayhal\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.11.7\\\\server\\\\server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2023-11-01T12:09:59.618Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2023-11-01T12:09:59.629Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[info] i  functions: Watching "C:\Users\ayhal\Documents\GitHub\nextjs-projectpaper\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\ayhal\\Documents\\GitHub\\nextjs-projectpaper\\functions\" for Cloud Functions..."}}
+[debug] [2023-11-01T12:09:59.662Z] Validating nodejs source
+[debug] [2023-11-01T12:10:06.138Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[error] !!  functions: Failed to load function definition from source: FirebaseError: There was an error reading functions\package.json:
+
+ functions\lib\index.js does not exist, can't deploy Cloud Functions {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: There was an error reading functions\\package.json:\n\n functions\\lib\\index.js does not exist, can't deploy Cloud Functions"}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Functions      │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Firestore      │ 127.0.0.1:8080 │ http://127.0.0.1:4000/firestore │
+└────────────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500, 9150
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2023-11-01T17:34:38.300Z] >>> [apiv2][query] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast [none]
+[debug] [2023-11-01T17:34:38.303Z] >>> [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"eventId":"96a78288-199e-44ba-a88e-5b953d4bead3","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/kanban-projectpaper","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2023-11-01T17:34:38.294Z","data":{"uid":"oUxcKPhe3qBLPNCvuvyCkkxpEiCC","email":"qwe@qwe.qwe","emailVerified":false,"metadata":{"creationTime":"2023-11-01T17:34:38.275Z","lastSignInTime":"2023-11-01T17:34:38.275Z"},"customClaims":{},"providerData":[{"providerId":"password","email":"qwe@qwe.qwe","federatedId":"qwe@qwe.qwe","rawId":"qwe@qwe.qwe"}]}}
+[debug] [2023-11-01T17:34:38.344Z] <<< [apiv2][status] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast 200
+[debug] [2023-11-01T17:34:38.344Z] <<< [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"status":"multicast_acknowledged"}
+[info] i  To reset the password for qwe@qwe.qwe, follow this link: http://127.0.0.1:9099/emulator/action?mode=resetPassword&lang=en&oobCode=-CP-mbPNrQq1aa4z5Vodhy_3dYw7zxwvEosniMC6mNCsLa5ue8lz3N&apiKey=fake-api-key&newPassword=NEW_PASSWORD_HERE {"metadata":{"emulator":{"name":"auth"},"message":"To reset the password for qwe@qwe.qwe, follow this link: http://127.0.0.1:9099/emulator/action?mode=resetPassword&lang=en&oobCode=-CP-mbPNrQq1aa4z5Vodhy_3dYw7zxwvEosniMC6mNCsLa5ue8lz3N&apiKey=fake-api-key&newPassword=NEW_PASSWORD_HERE"}}
+[debug] [2023-11-01T18:00:29.757Z] >>> [apiv2][query] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast [none]
+[debug] [2023-11-01T18:00:29.758Z] >>> [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"eventId":"a384c1cb-071c-44b6-a436-0b044cc177be","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/kanban-projectpaper","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2023-11-01T18:00:29.757Z","data":{"uid":"wZHOAMudZZl2VbZRPV2Cpz1p3zBE","email":"ads@asdsa.asdas","emailVerified":false,"metadata":{"creationTime":"2023-11-01T18:00:29.756Z","lastSignInTime":"2023-11-01T18:00:29.756Z"},"customClaims":{},"providerData":[{"providerId":"password","email":"ads@asdsa.asdas","federatedId":"ads@asdsa.asdas","rawId":"ads@asdsa.asdas"}]}}
+[debug] [2023-11-01T18:00:29.768Z] <<< [apiv2][status] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast 200
+[debug] [2023-11-01T18:00:29.768Z] <<< [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"status":"multicast_acknowledged"}
+[debug] [2023-11-01T18:01:49.011Z] >>> [apiv2][query] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast [none]
+[debug] [2023-11-01T18:01:49.011Z] >>> [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"eventId":"28ff8d7b-50da-496e-9799-6abd1c1d03e8","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/kanban-projectpaper","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2023-11-01T18:01:49.011Z","data":{"uid":"nuae6b81ZYS8mzP0wVDHYTIzuCj4","email":"wqd@qwewq.qwe","emailVerified":false,"metadata":{"creationTime":"2023-11-01T18:01:49.009Z","lastSignInTime":"2023-11-01T18:01:49.009Z"},"customClaims":{},"providerData":[{"providerId":"password","email":"wqd@qwewq.qwe","federatedId":"wqd@qwewq.qwe","rawId":"wqd@qwewq.qwe"}]}}
+[debug] [2023-11-01T18:01:49.020Z] <<< [apiv2][status] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast 200
+[debug] [2023-11-01T18:01:49.022Z] <<< [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"status":"multicast_acknowledged"}
+[debug] [2023-11-01T18:04:39.795Z] >>> [apiv2][query] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast [none]
+[debug] [2023-11-01T18:04:39.795Z] >>> [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"eventId":"741ea2eb-b936-473e-98ec-f7a4ed1d2051","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/kanban-projectpaper","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2023-11-01T18:04:39.794Z","data":{"uid":"QSrqu5vceqNI8V78uxA8kCvZ9ia9","email":"qwe@qwe.qwe","emailVerified":false,"metadata":{"creationTime":"2023-11-01T18:04:39.794Z","lastSignInTime":"2023-11-01T18:04:39.794Z"},"customClaims":{},"providerData":[{"providerId":"password","email":"qwe@qwe.qwe","federatedId":"qwe@qwe.qwe","rawId":"qwe@qwe.qwe"}]}}
+[debug] [2023-11-01T18:04:39.806Z] <<< [apiv2][status] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast 200
+[debug] [2023-11-01T18:04:39.806Z] <<< [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"status":"multicast_acknowledged"}
+[debug] [2023-11-02T11:03:28.162Z] ----------------------------------------------------------------------
+[debug] [2023-11-02T11:03:28.169Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ayhal\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --import=./fb-emulator --export-on-exit
+[debug] [2023-11-02T11:03:28.171Z] CLI Version:   12.7.0
+[debug] [2023-11-02T11:03:28.172Z] Platform:      win32
+[debug] [2023-11-02T11:03:28.173Z] Node Version:  v18.17.1
+[debug] [2023-11-02T11:03:28.186Z] Time:          Thu Nov 02 2023 21:03:28 GMT+1000 (Владивосток, стандартное время)
+[debug] [2023-11-02T11:03:28.187Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-11-02T11:03:28.595Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-11-02T11:03:28.597Z] > authorizing via signed-in user (ayhalvas2001@gmail.com)
+[debug] [2023-11-02T11:03:29.138Z] java version "21.0.1" 2023-10-17 LTS
+
+[debug] [2023-11-02T11:03:29.140Z] Java(TM) SE Runtime Environment (build 21.0.1+12-LTS-29)
+Java HotSpot(TM) 64-Bit Server VM (build 21.0.1+12-LTS-29, mixed mode, sharing)
+
+[debug] [2023-11-02T11:03:29.194Z] Parsed Java major version: 21
+[info] i  emulators: Starting emulators: auth, functions, firestore {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, functions, firestore"}}
+[debug] [2023-11-02T11:03:29.247Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-11-02T11:03:29.248Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-11-02T11:03:29.248Z] [firestore] Firestore Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-11-02T11:03:29.249Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-11-02T11:03:29.250Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project kanban-projectpaper. This may result in unexpected behavior. 
+[debug] [2023-11-02T11:03:29.293Z] [hub] writing locator at C:\Users\ayhal\AppData\Local\Temp\hub-kanban-projectpaper.json
+[debug] [2023-11-02T11:03:29.332Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-11-02T11:03:29.333Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-11-02T11:03:29.334Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: database, hosting, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mdatabase, hosting, pubsub, storage\u001b[22m"}}
+[debug] [2023-11-02T11:03:29.344Z] defaultcredentials: writing to file C:\Users\ayhal\AppData\Roaming\firebase\ayhalvas2001_gmail_com_application_default_credentials.json
+[debug] [2023-11-02T11:03:29.398Z] Setting GAC to C:\Users\ayhal\AppData\Roaming\firebase\ayhalvas2001_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\ayhal\\AppData\\Roaming\\firebase\\ayhalvas2001_gmail_com_application_default_credentials.json"}}
+[debug] [2023-11-02T11:03:29.408Z] > refreshing access token with scopes: []
+[debug] [2023-11-02T11:03:29.414Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-11-02T11:03:29.414Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-11-02T11:03:30.956Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-11-02T11:03:30.957Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-11-02T11:03:30.973Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/kanban-projectpaper/adminSdkConfig [none]
+[debug] [2023-11-02T11:03:32.596Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/kanban-projectpaper/adminSdkConfig 200
+[debug] [2023-11-02T11:03:32.596Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/kanban-projectpaper/adminSdkConfig {"projectId":"kanban-projectpaper","storageBucket":"kanban-projectpaper.appspot.com"}
+[debug] [2023-11-02T11:03:32.633Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-11-02T11:03:32.634Z] Ignoring unsupported arg: single_project_mode_error {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: single_project_mode_error"}}
+[debug] [2023-11-02T11:03:32.635Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\ayhal\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.18.2.jar","--host","127.0.0.1","--port",8080,"--websocket_port",9150,"--project_id","kanban-projectpaper","--rules","C:\\Users\\ayhal\\Documents\\GitHub\\nextjs-projectpaper\\firestore.rules","--single_project_mode",true,"--functions_emulator","127.0.0.1:5001"],"optionalArgs":["port","webchannel_port","host","rules","websocket_port","functions_emulator","seed_from_export","project_id","single_project_mode"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\ayhal\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.18.2.jar\",\"--host\",\"127.0.0.1\",\"--port\",8080,\"--websocket_port\",9150,\"--project_id\",\"kanban-projectpaper\",\"--rules\",\"C:\\\\Users\\\\ayhal\\\\Documents\\\\GitHub\\\\nextjs-projectpaper\\\\firestore.rules\",\"--single_project_mode\",true,\"--functions_emulator\",\"127.0.0.1:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"websocket_port\",\"functions_emulator\",\"seed_from_export\",\"project_id\",\"single_project_mode\"],\"joinArgs\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[info] +  firestore: Firestore Emulator UI websocket is running on 9150. {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator UI websocket is running on 9150."}}
+[debug] [2023-11-02T11:04:29.407Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-11-02T11:04:29.407Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-11-02T11:04:29.407Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\ayhal\\.cache\\firebase\\emulators\\ui-v1.11.7\\server\\server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\ayhal\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.11.7\\\\server\\\\server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2023-11-02T11:04:29.878Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2023-11-02T11:04:29.879Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[info] i  functions: Watching "C:\Users\ayhal\Documents\GitHub\nextjs-projectpaper\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\ayhal\\Documents\\GitHub\\nextjs-projectpaper\\functions\" for Cloud Functions..."}}
+[debug] [2023-11-02T11:04:29.980Z] Validating nodejs source
+[debug] [2023-11-02T11:04:36.293Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[error] !!  functions: Failed to load function definition from source: FirebaseError: There was an error reading functions\package.json:
+
+ functions\lib\index.js does not exist, can't deploy Cloud Functions {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: There was an error reading functions\\package.json:\n\n functions\\lib\\index.js does not exist, can't deploy Cloud Functions"}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Functions      │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Firestore      │ 127.0.0.1:8080 │ http://127.0.0.1:4000/firestore │
+└────────────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500, 9150
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2023-11-02T13:12:51.596Z] >>> [apiv2][query] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast [none]
+[debug] [2023-11-02T13:12:51.599Z] >>> [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"eventId":"e69163f3-4abe-411a-9dcf-a689e5b05ae4","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/kanban-projectpaper","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2023-11-02T13:12:51.593Z","data":{"uid":"7sssddf6NRFnIBxu9clCb2JzgW59","email":"asd@asd.asd","emailVerified":false,"metadata":{"creationTime":"2023-11-02T13:12:51.588Z","lastSignInTime":"2023-11-02T13:12:51.588Z"},"customClaims":{},"providerData":[{"providerId":"password","email":"asd@asd.asd","federatedId":"asd@asd.asd","rawId":"asd@asd.asd"}]}}
+[debug] [2023-11-02T13:12:51.626Z] <<< [apiv2][status] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast 200
+[debug] [2023-11-02T13:12:51.626Z] <<< [apiv2][body] POST http://127.0.0.1:5001/functions/projects/kanban-projectpaper/trigger_multicast {"status":"multicast_acknowledged"}

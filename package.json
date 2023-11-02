@@ -6,13 +6,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "fb-emulators": "firebase emulators:start --import=./fb-emulator --export-on-exit"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.7",
+    "firebase": "^10.5.2",
     "framer-motion": "^10.16.4",
     "next": "14.0.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-device-detect": "^2.2.3",
+    "react-dom": "^18",
+    "react-firebase-hooks": "^5.1.1",
+    "react-redux": "^8.1.3"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -1,0 +1,46 @@
+.button-default {
+    min-width: 100px; width: 100%;
+    height: 36px;
+    background-color: $primary-color;
+    color: $secondary-color;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.close-button {
+    min-width: 24px; height: 24px;
+    border-radius: 50%;
+    svg { width: 100%; height: 100%; }
+}
+
+.error-container {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 5px 10px;
+    gap: 5px;
+    background-color: $error-color-background;
+    border: 2px solid $error-color;
+    border-radius: 10px;
+
+    .error-message { color: $error-color; }
+}
+
+@media (hover: hover) {
+    .button-default { 
+        background-color: $gray;
+        &:hover {
+            background-color: $primary-color;
+            transform: scale(1.05);
+        }
+    }
+
+    .close-button {
+        opacity: 0.5;
+        &:hover {
+            background-color: color-mix(in srgb, $error-color, #FFFFFF 50%);
+        }
+    }
+}
