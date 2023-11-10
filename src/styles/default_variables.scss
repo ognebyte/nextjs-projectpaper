@@ -3,6 +3,7 @@ $secondary-color: #F6F6F6;
 $third-color: #FFCB74;
 
 $gray: #2F2F2F;
+$gray-light: color-mix(in srgb, $primary-color, #ffffff 90%);
 
 $error-color-background: #edc8c5;
 $error-color: #b4302b;
@@ -10,3 +11,5 @@ $error-color: #b4302b;
 // --info: #17a2b8;
 // --warning: #ffc107;
 // --danger: #dc3545;
+
+$header-height: 45px;

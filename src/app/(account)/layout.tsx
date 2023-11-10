@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useRouter, usePathname } from 'next/navigation'
+import { usePathname, redirect } from 'next/navigation'
 import Image from 'next/image'
 import { motion, useAnimationControls } from "framer-motion"
 
@@ -16,8 +16,7 @@ export default function AccountLayout({
 }: {
     children: React.ReactNode
 }) {
-    const { push } = useRouter()
-    const currentUser = useAppSelector((state) => state.authReducer.value)
+    const currentUser = useAppSelector((state) => state.authReducer)
     const [pageLoading, setPageLoading] = useState(true);
     const currPathname = usePathname()
     const [prevPathname, setPrevPathname] = useState('');
@@ -25,7 +24,7 @@ export default function AccountLayout({
 
     useEffect(() => {
         if(!currentUser.loading) {
-            if (currentUser.isAuth) push('/')
+            if (currentUser.isAuth) redirect('/')
             else setPageLoading(false)
         }
     }, [currentUser])
@@ -39,16 +38,14 @@ export default function AccountLayout({
                 setPrevPathname(currPathname)
             }
     }, [currPathname])
-
-    if (pageLoading) return null
-
-    return (
+    
+    return pageLoading ? null : (
         <>
             <Image className='body-background' src={squareGrunge} alt='body-background' priority={false} />
                 <div className='page-auth'>
                     <main className='container'>
                         <div className="svg-holder"><Growth /></div>
-                        <motion.div className="form-container" animate={animation}>
+                        <motion.div className="form-container box-shadow" animate={animation}>
                             {children}
                         </motion.div>
                     </main>

@@ -1,0 +1,15 @@
+.form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 24px;
+
+    .form-inputs, .form-buttons {
+        display: flex; flex-direction: column;
+        align-items: center;
+        width: 100%; gap: 16px;
+    }
+}

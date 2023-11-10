@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 import '@/styles/index.scss'
-import App from './app'
+import App from '@/app/app'
 import ReduxProvider from '@/app/provider'
 
 
 export const metadata: Metadata = {
-    title: 'Home'
+    title: 'Dashboard'
 }
 
 export default function RootLayout({

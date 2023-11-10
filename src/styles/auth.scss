@@ -32,25 +32,8 @@
             width: 100%;
             padding: 24px;
             background: #F6F6F620;
-            box-shadow: 0 0 8px 8px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(3px);
             overflow: hidden;
-            
-            .form {
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                width: 100%;
-                gap: 24px;
-
-                .form-inputs, .form-buttons {
-                    display: flex; flex-direction: column;
-                    align-items: center;
-                    width: 100%; gap: 16px;
-                }
-            }
         }
     }
 

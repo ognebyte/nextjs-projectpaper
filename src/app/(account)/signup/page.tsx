@@ -16,9 +16,9 @@ const SignUp = () => {
 
 
     async function signUp(formData: FormData) {
-        let username = formData.get('username') as string
-        let email = formData.get('email') as string
-        let password = formData.get('password') as string
+        let username = (formData.get('username') as string).trim()
+        let email = (formData.get('email') as string).trim()
+        let password = (formData.get('password') as string).trim()
         if (username.length == 0 || email.length == 0 || password.length == 0) {
             setErrorText('Not all fields are filled')
             setErrorStatus(true)

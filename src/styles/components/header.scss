@@ -1,0 +1,14 @@
+header {
+    height: $header-height;
+    
+    .header-content {
+        position: fixed;
+        display: inline-flex;
+        align-items: center;
+        width: 100%; height: $header-height;
+        padding: 0 10px;
+        gap: 16px;
+        background: $secondary-color;
+        z-index: 4;
+    }
+}

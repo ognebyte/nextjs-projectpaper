@@ -1,4 +1,4 @@
-* { margin: 0; padding: 0; box-sizing: border-box; color: $primary-color;}
+* { margin: 0; padding: 0; box-sizing: border-box; color: $primary-color; z-index: 1; }
 body {
     position: relative;
     min-width: 280px; width: 100vw;
@@ -10,14 +10,16 @@ body {
     position: absolute;
     width: 100%; height: 100%;
     object-fit: cover;
-    z-index: -100;
+    z-index: -1;
 }
 
 .disabled { pointer-events: none; opacity: 0.6 !important; }
 
 .divider-horizontal { width: 80%; height: 2px; border-radius: 10px; background-color: $gray; }
 
-input {
+.box-shadow { box-shadow: 0 0 16px 8px rgba(0, 0, 0, 0.1); }
+
+input, textarea {
     width: 100%; height: 36px;
     padding: 0 10px;
     background-color: $secondary-color;
@@ -27,6 +29,11 @@ input {
     box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
     &::placeholder { color: color-mix(in srgb, $primary-color, #ffffff 50%); }
     &:focus { outline: 2px solid $gray; }
+}
+textarea {
+    resize: vertical;
+    padding: 5px 10px;
+    background-color: $gray-light;
 }
 
 button {
@@ -38,11 +45,12 @@ button {
 
 h1 { font-family: 'OstrovskyBold'; }
 
-a, button, input, p {
+a, button, input, p, textarea {
     font-family: 'FinlandicaMedium';
     font-size: 1em;
 }
 
+svg { width: 100%; height: 100%; }
 
 // @media only screen and (max-width: 300px) {
     

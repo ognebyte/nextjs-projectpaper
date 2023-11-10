@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { FIREBASE_AUTH } from '@/firebase/config'
-import { ButtonSubmit, ButtonClose } from '@/app/_components/buttons'
+import { ButtonSubmit } from '@/app/_components/buttons'
 import ErrorMessage from '@/app/_components/errorMessage';
 
 
