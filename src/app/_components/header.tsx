@@ -1,15 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Sidebar from "@/app/_components/sidebar";
-import { useAppSelector } from "@/store/store";
 
 import Menu from "@/assets/svg/menu";
 import Close from "@/assets/svg/close";
+import { usePathname } from "next/navigation";
 
 
-const Header = () => {
-    const pageState = useAppSelector((state) => state.pageReducer)
+export default function Header() {
+    const currPathname = usePathname()
+    const [headerTitle, setHeaderTitle] = useState('')
     const [isHide, setIsHide] = useState(true)
 
+    useEffect(() => {
+        setHeaderTitle(document.title)
+    }, [currPathname])
 
     function showSidebar() {
         setIsHide(!isHide)
@@ -17,15 +21,15 @@ const Header = () => {
 
     return (
         <header className="header-container">
-            <div className='header-content'>
+            <div className="header-content">
                 <button className="sidebar-button" onClick={showSidebar}>
                     {isHide ? <Menu /> : <Close />}
                 </button>
-                <h1>{pageState.metadata.title ?? 'Dashboard'}</h1>
+                <button className="title-container" onClick={() => window.scrollTo(0, 0)}>
+                    <h1 className="title">{headerTitle}</h1>
+                </button>
             </div>
             <Sidebar isHide={isHide} hide={() => setIsHide(true)} />
         </header>
     );
 }
-
-export default Header;

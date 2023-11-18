@@ -5,7 +5,7 @@ import ReduxProvider from '@/app/provider'
 
 
 export const metadata: Metadata = {
-    title: 'Dashboard'
+    title: 'ProjectPaper'
 }
 
 export default function RootLayout({

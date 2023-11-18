@@ -18,8 +18,8 @@ export const FIREBASE_AUTH = getAuth(app);
 export const FIREBASE_DB = getFirestore(app);
 export const FIREBASE_FUNC = getFunctions(app);
 
-if (process.env.NODE_ENV === "development") {
-  connectAuthEmulator(FIREBASE_AUTH, "http://localhost:9099");
-  connectFirestoreEmulator(FIREBASE_DB, "localhost", 8080);
-  connectFunctionsEmulator(FIREBASE_FUNC, "localhost", 5001);
-}
+// if (process.env.NODE_ENV === "development") {
+//   connectAuthEmulator(FIREBASE_AUTH, "http://localhost:9099");
+//   connectFirestoreEmulator(FIREBASE_DB, "localhost", 8080);
+//   connectFunctionsEmulator(FIREBASE_FUNC, "localhost", 5001);
+// }

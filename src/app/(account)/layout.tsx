@@ -9,6 +9,7 @@ import Footer from '@/app/_components/footer'
 import squareGrunge from '@/assets/textures/transparent/square-grunge.png'
 import Growth from '@/assets/svg/growth'
 import { useAppSelector } from '@/store/store'
+import { PageLoading } from '@/app/_components/loadings'
 
 
 export default function AccountLayout({
@@ -23,7 +24,7 @@ export default function AccountLayout({
     const animation = useAnimationControls()
 
     useEffect(() => {
-        if(!currentUser.loading) {
+        if (!currentUser.loading) {
             if (currentUser.isAuth) redirect('/')
             else setPageLoading(false)
         }
@@ -38,18 +39,18 @@ export default function AccountLayout({
                 setPrevPathname(currPathname)
             }
     }, [currPathname])
-    
-    return pageLoading ? null : (
+
+    return pageLoading ? <PageLoading /> : (
         <>
             <Image className='body-background' src={squareGrunge} alt='body-background' priority={false} />
-                <div className='page-auth'>
-                    <main className='container'>
-                        <div className="svg-holder"><Growth /></div>
-                        <motion.div className="form-container box-shadow" animate={animation}>
-                            {children}
-                        </motion.div>
-                    </main>
-                </div>
+            <div className='page-auth flex-center'>
+                <main className='container'>
+                    <div className="svg-holder flex-center"><Growth /></div>
+                    <motion.div className="form-container box-shadow" animate={animation}>
+                        {children}
+                    </motion.div>
+                </main>
+            </div>
             <Footer />
         </>
     )

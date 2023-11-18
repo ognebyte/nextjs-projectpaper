@@ -1,40 +1,95 @@
 $content-max-width: 250px;
 $content-gap: 16px;
-$content-max-count: 5;
+$content-max-count: 4;
 $padding: 48px;
 
+.dashboard {
+    max-width: $content-max-width * $content-max-count + $content-gap * ($content-max-count - 1) + ($padding * 2);
+    height: 100%;
+    margin: auto;
+    padding-top: $header-height + 16px;
+    padding-bottom: 32px;
+    padding-inline: $padding;
+}
 
 .dashboard-container {
     display: flex;
     flex-direction: column;
-    padding: 30px $padding;
     margin: auto;
-    max-width: $content-max-width * $content-max-count + $content-gap * ($content-max-count - 1) + ($padding * 2);
+
+    .dashboard-loading {
+        width: 100%;
+        height: 40px;
+    }
+
+    .dashboard-empty {
+        display: inline-flex; flex-wrap: wrap; justify-content: center;
+        gap: 4px;
+        padding: 8px;
+        border-radius: 8px;
+        background-color: $gray-light;
+        font-size: 1.4rem;
+    }
 
     .dashboard-content {
         display: grid;
         gap: $content-gap;
-        grid-template-columns: repeat(auto-fit, minmax($content-max-width, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax($content-max-width, 1fr));
+        content-visibility: auto;
+        
+        .dashboard-project {
+            display: grid;
+            grid-template-columns: 1fr 36px;
+            height: 100px;
+            padding: 8px;
+            background-color: $gray-light;
+            border-left: 4px solid;
+            border-radius: 8px;
+            text-decoration: none;
 
-        p {
-            height: 200px;
-            background-color: rgba(0, 0, 0, 0.497);
+            .info {
+                width: auto;
+                overflow-y: hidden;
+                float: left;
+                
+                .title {
+                    font-weight: normal;
+                    font-size: clamp(1rem, 5vw, 1.5rem);
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+            svg { float: right; width: 36px; height: 36px; }
         }
     }
 }
 
 
 @media only screen and (max-width: 900px) {
-    .dashboard-container {
-        padding: 30px 24px;
-        .dashboard-content {
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    .dashboard {
+        padding-inline: 24px;
+        .dashboard-container {
+
+            .dashboard-empty { font-size: 1.2rem; }
+            .dashboard-content {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
         }
     }
 }
 
 @media only screen and (max-width: 768px) {
-    .dashboard-container {
-        padding: 30px 16px;
+    .dashboard {
+        padding-inline: 16px;
+        .dashboard-container {
+
+            .dashboard-empty { font-size: 1rem; }
+        }
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .dashboard {
+        padding-inline: 8px;
     }
 }

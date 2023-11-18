@@ -1,15 +1,18 @@
-$primary-color: #111111;
-$secondary-color: #F6F6F6;
-$third-color: #FFCB74;
+$primary-color: rgba(17, 17, 17, 1);
+$secondary-color: rgba(246, 246, 246, 1);
+$third-color: rgb(255, 205, 117);
 
-$gray: #2F2F2F;
-$gray-light: color-mix(in srgb, $primary-color, #ffffff 90%);
+$gray: rgba(17, 17, 17, 0.4);
+$gray-border: rgba(17, 17, 17, 0.2);
+$gray-light: rgba(17, 17, 17, 0.03);
 
-$error-color-background: #edc8c5;
-$error-color: #b4302b;
+$hover-light: rgba(17, 17, 17, 0.08);
+
+$error-color-background: rgb(237, 199, 196);
+$error-color: rgb(181, 48, 44);
 // --success: #28a745;
 // --info: #17a2b8;
 // --warning: #ffc107;
 // --danger: #dc3545;
 
-$header-height: 45px;
+$header-height: 48px;

@@ -1,0 +1,93 @@
+.boards {
+    display: inline-flex;
+    padding-inline: 40px;
+    padding-bottom: 16px;
+    gap: 8px;
+    max-height: 100%;
+    height: 100%;
+    overflow-x: auto;
+
+    .board {
+        display: grid;
+        grid-template-rows: $row-height 1fr 36px;
+        width: 250px;
+        max-height: 100%;
+        border: 1px solid $gray-border;
+        border-radius: 8px;
+        overflow-y: hidden;
+
+        .board-header {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            height: 100%;
+            padding-inline: 8px;
+            border-bottom: 1px solid;
+            word-break: break-all;
+
+            .board-background { opacity: 0.3; }
+            .board-name { mix-blend-mode: difference; }
+        }
+        
+        .tasks {
+            position: relative;
+            display: grid;
+            grid-template-rows: repeat(auto-fill, 80px);
+            gap: 8px;
+            padding-block: 8px;
+            overflow-y: auto;
+
+            .tasks-background { opacity: 0.05; }
+
+            .task {
+                height: 100%;
+                background-color: blanchedalmond;
+            }
+        }
+
+        .board-background, .tasks-background {
+            position: absolute;
+            top: 0; bottom: 0; left: 0; right: 0;
+        }
+
+        .task-create {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-top: 1px solid $gray-border;
+            text-decoration: none;
+        }
+    }
+
+    .board-create {
+        display: flex;
+        align-items: center;
+        height: $row-height;
+        
+        .button-plus {
+            padding: 4px 8px;
+            gap: 4px;
+            border: 1px solid $primary-color;
+            border-radius: 8px;
+            text-wrap: nowrap;
+            text-decoration: none;
+
+            svg { width: 24px; height: 24px; }
+        }
+    }
+}
+
+@media (hover: hover) {
+    .button-plus {
+        border: none !important;
+    }
+    .button-plus, .task-create {
+        opacity: 0.6;
+        transition: all ease 0.2s;
+
+        &:hover {
+            opacity: 1;
+            background-color: $hover-light;
+        }
+    }
+}

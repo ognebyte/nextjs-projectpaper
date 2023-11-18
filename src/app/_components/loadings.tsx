@@ -2,18 +2,32 @@ export function PageLoading({ color = '#111111' }) {
     return (
         <div className="page-loading">
             <div className="svg-container">
-                <svg version="1.1" id="L4" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 100 100" enableBackground="new 0 0 0 0">
-                    <circle fill={color} stroke="none" cx="6" cy="50" r="6">
-                        <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.1" />
-                    </circle>
-                    <circle fill={color} stroke="none" cx="26" cy="50" r="6">
-                        <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.2" />
-                    </circle>
-                    <circle fill={color} stroke="none" cx="46" cy="50" r="6">
-                        <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.3" />
-                    </circle>
-                </svg>
+                <ComponentLoading color={color} />
             </div>
         </div>
+    )
+}
+
+export function ComponentLoading({ color = '#111111' }) {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="64px" height="64px" viewBox="0 0 128 128" >
+            <g>
+                <path d="M59.6 0h8v40h-8V0z" fill={color} />
+                <path d="M59.6 0h8v40h-8V0z" fill="#cccccc" transform="rotate(30 64 64)" />
+                <path d="M59.6 0h8v40h-8V0z" fill="#cccccc" transform="rotate(60 64 64)" />
+                <path d="M59.6 0h8v40h-8V0z" fill="#cccccc" transform="rotate(90 64 64)" />
+                <path d="M59.6 0h8v40h-8V0z" fill="#cccccc" transform="rotate(120 64 64)" />
+                <path d="M59.6 0h8v40h-8V0z" fill="#b2b2b2" transform="rotate(150 64 64)" />
+                <path d="M59.6 0h8v40h-8V0z" fill="#999999" transform="rotate(180 64 64)" />
+                <path d="M59.6 0h8v40h-8V0z" fill="#7f7f7f" transform="rotate(210 64 64)" />
+                <path d="M59.6 0h8v40h-8V0z" fill="#666666" transform="rotate(240 64 64)" />
+                <path d="M59.6 0h8v40h-8V0z" fill="#4c4c4c" transform="rotate(270 64 64)" />
+                <path d="M59.6 0h8v40h-8V0z" fill="#333333" transform="rotate(300 64 64)" />
+                <path d="M59.6 0h8v40h-8V0z" fill="#191919" transform="rotate(330 64 64)" />
+                <animateTransform attributeName="transform" type="rotate" values="0 64 64;30 64 64;60 64 64;90 64 64;120 64 64;150 64 64;180 64 64;210 64 64;240 64 64;270 64 64;300 64 64;330 64 64" calcMode="discrete" dur="720ms" repeatCount="indefinite"></animateTransform>
+            </g>
+        </svg>
+
+
     )
 }

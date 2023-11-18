@@ -4,7 +4,7 @@
     background-color: $primary-color;
     color: $secondary-color;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     overflow: hidden;
 }
 
@@ -24,11 +24,11 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 5px 10px;
-    gap: 5px;
+    padding: 4px 8px;
+    gap: 4px;
     background-color: $error-color-background;
     border: 2px solid $error-color;
-    border-radius: 10px;
+    border-radius: 8px;
 
     .error-message { color: $error-color; }
 }

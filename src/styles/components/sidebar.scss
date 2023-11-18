@@ -2,83 +2,92 @@
     min-width: 40px;
     height: 40px;
     overflow: hidden;
+    border-radius: 50%;
+
+    &:hover { background-color: $hover-light; }
 }
 
 .sidebar-container {
     position: fixed;
-    display: flex;
-    flex-direction: column;
+    top: 0;
+    bottom: 0;
     width: 100%;
-    max-height: 100%;
-    padding: 16px;
-    padding-top: $header-height + 16px;
-    gap: 16px;
-    background-color: $secondary-color;
-    content-visibility: auto;
-    overflow-y: auto;
-    z-index: 3;
+    padding-top: $header-height;
 
-    .email {
-        font-size: 0.8rem;
-        color: color-mix(in srgb, $primary-color, #ffffff 50%);
-    }
-
-    .profile {
-        display: inline-flex;
-        gap: 10px;
-        max-height: 60px;
-        align-items: center;
-
-        .photo {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 40px;
-            height: 40px;
-            aspect-ratio: 1;
-            border-radius: 10px;
-            border: 1px solid $gray;
-        }
-
-        .username {
-            font-size: 1.2rem;
-            font-family: 'FinlandicaRegular';
-            text-overflow: ellipsis;
-            overflow: hidden;
-        }
-    }
-
-    .action-container {
+    .sidebar {
         display: flex;
+        width: 100%; max-height: 100%;
         flex-direction: column;
-        gap: 5px;
+        padding: 16px;
+        gap: 16px;
+        background-color: $secondary-color;
+        overflow-y: auto;
+        overscroll-behavior: none;
 
-        .action {
+        .email { font-size: 1rem; color: $gray; }
+
+        .profile {
             display: inline-flex;
+            gap: 8px;
             align-items: center;
-            padding: 10px;
-            width: 100%;
-            text-decoration: none;
-            border-radius: 10px;
-            gap: 10px;
-            overflow: hidden;
 
-            &:hover {
-                background-color: $gray-light;
+            .photo {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 40px;
+                height: 40px;
+                aspect-ratio: 1;
+                border-radius: 8px;
+                border: 1px solid $gray-border;
+                font-family: 'OstrovskyBold';
+                font-size: 1rem;
             }
 
-            svg {
-                width: 30px;
-                height: 30px;
+            .username {
+                font-size: 1.2rem;
+                font-family: 'FinlandicaRegular';
+                text-overflow: ellipsis;
+                overflow: hidden;
             }
+        }
+
+        .action-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            .action {
+                display: inline-flex;
+                align-items: center;
+                padding: 8px;
+                width: 100%;
+                text-decoration: none;
+                border-radius: 8px;
+                gap: 8px;
+                overflow: hidden;
+
+                &:hover { background-color: $hover-light; }
+
+                svg { width: 32px; height: 32px; }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .sidebar-container {
+        .sidebar {
+            box-shadow: 0px 16px 8px 0 rgba(0, 0, 0, 0.1);
         }
     }
 }
 
 @media only screen and (min-width: 350px) {
     .sidebar-container {
-        width: min(100%, 300px);
-        left: 24px;
-        border-radius: 0 0 10px 10px;
+        width: 300px;
+        padding-left: 16px;
+
+        .sidebar { border-radius: 8px; }
     }
 }

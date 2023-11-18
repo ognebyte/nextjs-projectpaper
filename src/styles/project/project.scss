@@ -1,0 +1,61 @@
+$row-height: 48px;
+
+.project-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 16px;
+
+    .tabs {
+        display: inline-flex;
+        width: 100%;
+        border-bottom: 1px solid $gray-border;
+        
+        .tab {
+            padding: 4px 16px;
+            border-bottom: 4px solid transparent;
+            text-decoration: none;
+            transition: all ease 0.2s;
+            
+            .tab-label {
+                font-family: 'FinlandicaRegular';
+                font-weight: normal;
+                font-size: clamp(1rem, 2vw, 1.2rem);
+                opacity: 0.6;
+                transition: all ease 0.2s;
+
+                &:hover { opacity: 1; }
+            }
+        }
+        .active {
+            border-bottom-color: $primary-color;
+            .tab-label { opacity: 1; }
+        }
+    }
+
+    .tab-content {
+        height: 100%;
+        border-radius: 8px;
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        .loading-container { height: 48px; }
+        .loading {
+            height: 100%;
+            overflow: hidden;
+            svg { width: 40px; height: 40px; }
+        }
+        h3 {
+            font-family: 'FinlandicaMedium';
+            font-weight: normal;
+            font-size: 1rem;
+        }
+    }
+
+    .search-container {
+        .search { background-color: $gray-light; }
+    }
+
+    @import 'tasks.scss';
+    @import 'members.scss';
+}

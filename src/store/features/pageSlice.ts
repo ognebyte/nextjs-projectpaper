@@ -18,7 +18,7 @@ export const pageSlice = createSlice({
     name: 'page',
     initialState,
     reducers: {
-        rollback: () => { return initialState },
+        rollback () { initialState },
         setMetadata (state, action: PayloadAction<any>) { state.metadata = action.payload },
         pageLoading (state) { state.loading = true },
         pageLoaded (state) { state.loading = false },

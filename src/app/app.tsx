@@ -3,11 +3,14 @@
 import { useEffect } from 'react'
 import { FIREBASE_AUTH } from '@/firebase/config'
 import { useDispatch } from 'react-redux'
-import { logIn, logOut, notLogged } from '@/store/features/authSlice'
+import { logIn, notLogged } from '@/store/features/authSlice'
 import { onAuthStateChanged } from 'firebase/auth'
+import { useSearchParams } from 'next/navigation'
 
 
 export default function App({ children }: { children: React.ReactNode }) {
+    const searchParams = useSearchParams()
+    const search = searchParams.get('modal')
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -25,6 +28,12 @@ export default function App({ children }: { children: React.ReactNode }) {
         })
         return () => unsubscribe()
     }, [])
+
+    useEffect(() => {
+        if (search) { document.body.style.overflow = "hidden" }
+        else { document.body.style.overflow = "" }
+    }, [search])
+
 
     return children;
 };

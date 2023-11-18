@@ -4,9 +4,11 @@ import { useState } from 'react';
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { FIREBASE_AUTH } from '@/firebase/config'
+import { FIREBASE_AUTH, FIREBASE_DB } from '@/firebase/config'
 import { ButtonSubmit } from '@/app/_components/buttons'
 import ErrorMessage from '@/app/_components/errorMessage';
+import { doc, setDoc } from 'firebase/firestore';
+import moment from 'moment';
 
 
 const SignUp = () => {
@@ -27,6 +29,12 @@ const SignUp = () => {
         await createUserWithEmailAndPassword(FIREBASE_AUTH, email, password)
             .then(async (userDoc) => {
                 await updateProfile(userDoc.user, { displayName: username })
+                await setDoc(
+                    doc(FIREBASE_DB, `users/${userDoc.user.uid}`), {
+                    username: username,
+                    email: email,
+                    createdAt: moment().unix(),
+                })
                 router.push('/')
             })
             .catch(error => {

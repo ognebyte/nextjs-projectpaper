@@ -1,7 +1,7 @@
 import { ButtonClose } from '@/app/_components/buttons'
 
 
-export function ErrorMessage({ onClick, text }: { onClick: () => void, text: string }) {
+export default function ErrorMessage({ onClick, text }: { onClick: () => void, text: string }) {
     return (
         <div className='error-container'>
             <p className='error-message'>{text}</p>
@@ -9,5 +9,3 @@ export function ErrorMessage({ onClick, text }: { onClick: () => void, text: str
         </div>
     );
 }
-
-export default ErrorMessage;

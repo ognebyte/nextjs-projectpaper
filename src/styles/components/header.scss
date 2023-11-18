@@ -1,14 +1,33 @@
 header {
-    height: $header-height;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    background: $secondary-color;
+    overflow: hidden;
+    z-index: 4;
     
     .header-content {
-        position: fixed;
-        display: inline-flex;
-        align-items: center;
         width: 100%; height: $header-height;
-        padding: 0 10px;
+        display: grid;
+        grid-template-columns: 40px 1fr;
+        align-items: center;
+        justify-items: left;
         gap: 16px;
-        background: $secondary-color;
-        z-index: 4;
+        padding: 0 8px;
+
+        .title-container {
+            max-width: 100%;
+            overflow: hidden;
+            text-wrap: nowrap;
+
+            .title {
+                font-size: clamp(1.5rem, 5vw, 2rem);
+                font-family: 'FinlandicaMedium';
+                font-weight: normal;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
     }
+
 }

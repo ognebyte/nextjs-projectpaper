@@ -2,9 +2,12 @@
 
 import { useEffect, useState } from 'react'
 import { redirect, useSearchParams } from 'next/navigation'
+import dynamic from 'next/dynamic'
 import { useAppSelector } from '@/store/store'
 import Header from '@/app/_components/header'
-import ModalCreateProject from '@/app/_components/modals/modalCreateProject'
+import { PageLoading } from '@/app/_components/loadings'
+
+const ModalLayout = dynamic(() => import('@/app/_components/modals/modalLayout'))
 
 
 export default function DashboardLayout({
@@ -12,29 +15,25 @@ export default function DashboardLayout({
 }: {
     children: React.ReactNode
 }) {
-    const currentUser = useAppSelector((state) => state.authReducer)
+    const authState = useAppSelector((state) => state.authReducer)
     const [pageLoading, setPageLoading] = useState(true);
     const searchParams = useSearchParams()
-    const search = searchParams.get('modal')
-    const [modal, setModal] = useState(false);
+    const modalParam = searchParams.get('modal')
+
 
     useEffect(() => {
-        if (!currentUser.loading) {
-            if (currentUser.isAuth) setPageLoading(false)
+        if (!authState.loading) {
+            if (authState.isAuth) setPageLoading(false)
             else redirect('/signin')
         }
-    }, [currentUser])
+    }, [authState])
 
-    useEffect(() => {
-        if (search == 'createProject') setModal(true)
-        else setModal(false)
-    }, [search])
 
-    return pageLoading ? null : (
+    return pageLoading ? <PageLoading /> : (
         <div className="dashboard">
             <Header />
             {children}
-            <ModalCreateProject isOpen={modal} />
+            <ModalLayout modalParam={modalParam} />
         </div>
     )
 }

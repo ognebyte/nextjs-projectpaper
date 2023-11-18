@@ -1,8 +1,8 @@
-* { margin: 0; padding: 0; box-sizing: border-box; color: $primary-color; z-index: 1; }
+* { margin: 0; padding: 0; box-sizing: border-box; color: $primary-color; z-index: 1; scroll-behavior: smooth; }
 body {
     position: relative;
     min-width: 280px; width: 100vw;
-    min-height: 600px; height: 100vh;
+    height: 100vh;
     background-color: $secondary-color;
 }
 
@@ -15,24 +15,25 @@ body {
 
 .disabled { pointer-events: none; opacity: 0.6 !important; }
 
-.divider-horizontal { width: 80%; height: 2px; border-radius: 10px; background-color: $gray; }
+.divider-horizontal { width: 80%; height: 2px; border-radius: 8px; background-color: $gray; }
 
-.box-shadow { box-shadow: 0 0 16px 8px rgba(0, 0, 0, 0.1); }
+.box-shadow { box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1); }
+
+.flex-center { display: flex; justify-content: center; align-items: center; }
 
 input, textarea {
     width: 100%; height: 36px;
-    padding: 0 10px;
+    padding: 0 8px;
     background-color: $secondary-color;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     outline: none;
-    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
-    &::placeholder { color: color-mix(in srgb, $primary-color, #ffffff 50%); }
-    &:focus { outline: 2px solid $gray; }
+    &::placeholder { color: $gray; }
+    &:focus { outline: 2px solid $primary-color; }
 }
 textarea {
     resize: vertical;
-    padding: 5px 10px;
+    padding: 4px 8px;
     background-color: $gray-light;
 }
 
@@ -44,12 +45,14 @@ button {
 }
 
 h1 { font-family: 'OstrovskyBold'; }
+h1, h2, h3, p { text-overflow: ellipsis; overflow: hidden; }
 
 a, button, input, p, textarea {
-    font-family: 'FinlandicaMedium';
+    font-family: 'FinlandicaRegular';
     font-size: 1em;
 }
 
+li { list-style: none; }
 svg { width: 100%; height: 100%; }
 
 // @media only screen and (max-width: 300px) {

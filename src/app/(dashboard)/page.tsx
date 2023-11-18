@@ -1,27 +1,33 @@
 'use client'
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { useAppSelector } from '@/store/store'
-import { DocumentData, collection, onSnapshot, query, where } from 'firebase/firestore';
-import moment from 'moment';
+import { DocumentData, collection, onSnapshot, orderBy, query, where } from 'firebase/firestore';
 import { FIREBASE_DB } from '@/firebase/config';
+
+import RightArrow from '@/assets/svg/right-arrow';
+import { ComponentLoading } from '@/app/_components/loadings';
 
 
 export default function Dashboard() {
     const currentUser = useAppSelector((state) => state.authReducer.user)
-    const [userProjects, setUserProjects] = useState<DocumentData[]>();
+    const [userProjects, setUserProjects] = useState<DocumentData[]>([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const q = query(
             collection(FIREBASE_DB, 'projects'),
-            where("members", "array-contains", currentUser.uid)
+            where("members", "array-contains", currentUser.uid),
+            orderBy('createdAt', 'desc')
         );
-        const unsubscribe = onSnapshot(q, async (querySnapshot) => {
-            const userProjects: DocumentData[] = [];
-            await querySnapshot.forEach((doc) => {
-                userProjects.push(Object.assign({ id: doc.id }, doc.data()));
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+            var obj: DocumentData[] = []
+            querySnapshot.forEach((doc) => {
+                obj.push(Object.assign({ id: doc.id }, doc.data()))
             });
-            setUserProjects(userProjects)
+            setUserProjects(obj)
+            setLoading(false)
         });
         return () => unsubscribe()
     }, [])
@@ -29,17 +35,32 @@ export default function Dashboard() {
 
     return (
         <div className='dashboard-container'>
-            <div className="dashboard-content">
-                {userProjects?.length == 0 ? <p>Create new project</p> :
-                    userProjects?.map(project => (
-                        <div className="project-card" key={project.id}>
-                            <h2>{project.title}</h2>
-                            <h2>{project.description}</h2>
-                            <h2>{moment(project.createdAt).format('LL')}</h2>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
+            {loading ?
+                <div className="dashboard-loading">
+                    <ComponentLoading />
+                </div>
+                :
+                userProjects?.length == 0 ?
+                    <div className="dashboard-empty">
+                        <p>You have no projects,</p>
+                        <Link href={{ query: { modal: 'createProject' } }} scroll={false}>
+                            create a new project
+                        </Link>
+                    </div>
+                    :
+                    <div className="dashboard-content">
+                        {userProjects?.map(project => (
+                            <Link className="dashboard-project" key={project.id} href={`/project/${project.id}`}
+                                style={{ borderColor: project.color }}
+                            >
+                                <div className="info">
+                                    <h2 className='title'>{project.title}</h2>
+                                </div>
+                                <RightArrow />
+                            </Link>
+                        ))}
+                    </div>
+            }
+        </div >
     )
 }
