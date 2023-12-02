@@ -14,11 +14,6 @@ const ResetPassword = () => {
 
     async function sendMessage(formData: FormData) {
         let email = formData.get('email') as string
-        if (email.length == 0) {
-            setErrorText('Enter your email')
-            setErrorStatus(true)
-            return 0
-        }
         await sendPasswordResetEmail(FIREBASE_AUTH, email)
             .then(() => {
                 alert('Password reset request sent!')
@@ -37,7 +32,7 @@ const ResetPassword = () => {
                 Enter your account email address and we will send you a password reset link.
             </p>
             <div className='form-inputs'>
-                <input placeholder='Email' type='email' name='email' autoComplete='on' />
+                <input placeholder='Email' type='email' name='email' autoComplete='on' required />
                 {!errorStatus ? null :
                     <ErrorMessage onClick={() => setErrorStatus(false)} text={errorText} />
                 }

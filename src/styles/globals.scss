@@ -21,16 +21,20 @@ body {
 
 .flex-center { display: flex; justify-content: center; align-items: center; }
 
-input, textarea {
+input, textarea, select {
     width: 100%; height: 36px;
     padding: 0 8px;
     background-color: $secondary-color;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     outline: none;
     &::placeholder { color: $gray; }
-    &:focus { outline: 2px solid $primary-color; }
+    // &:focus { outline: 2px solid $primary-color; }
 }
+
+input[type=date], input[type=time] { cursor: text; }
+button, select { cursor: pointer; }
+
 textarea {
     resize: vertical;
     padding: 4px 8px;
@@ -38,19 +42,29 @@ textarea {
 }
 
 button {
-    cursor: pointer;
     border: none;
     background-color: transparent;
     transition: all ease 0.2s;
 }
 
-h1 { font-family: 'OstrovskyBold'; }
-h1, h2, h3, p { text-overflow: ellipsis; overflow: hidden; }
+select {
+    appearance: none;
+    option { font-size: 0.9rem; }
+}
+option {
+    background-color: $gray-light;
+    &:checked { background-color: $hover-light; }
+}
+option[value=''] { color: $gray; }
 
-a, button, input, p, textarea {
+
+h1 { font-family: 'OstrovskyBold'; }
+h2, h3 { font-family: 'FinlandicaMedium'; }
+a, button, input, p, textarea, select {
     font-family: 'FinlandicaRegular';
     font-size: 1em;
 }
+h1, h2, h3, p { text-overflow: ellipsis; overflow: hidden; font-weight: normal; }
 
 li { list-style: none; }
 svg { width: 100%; height: 100%; }

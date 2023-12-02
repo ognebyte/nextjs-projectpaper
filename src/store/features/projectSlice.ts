@@ -8,6 +8,7 @@ export interface ProjectState {
     color: string;
     createdAt: string;
     members: [];
+    boards: [];
 }
 
 const initialState: ProjectState = {
@@ -17,6 +18,7 @@ const initialState: ProjectState = {
         color: '',
         createdAt: '',
         members: [],
+        boards: [],
 }
  
 export const projectSlice = createSlice({

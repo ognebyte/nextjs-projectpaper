@@ -17,11 +17,6 @@ const SignIn = () => {
     async function signIn(formData: FormData) {
         let email = formData.get('email') as string
         let password = formData.get('password') as string
-        if (email.length == 0 || password.length == 0) {
-            setErrorText('Not all fields are filled')
-            setErrorStatus(true)
-            return 0
-        }
         await signInWithEmailAndPassword(FIREBASE_AUTH, email, password)
             .then(() => router.push('/'))
             .catch(error => {
@@ -34,8 +29,8 @@ const SignIn = () => {
         <form className='form' action={signIn}>
             <h1 className='form-title'>Sign in</h1>
             <div className='form-inputs'>
-                <input placeholder='Email' type='email' name='email' autoComplete='on' />
-                <input placeholder='Password' type='password' name='password' autoComplete='on' />
+                <input placeholder='Email' type='email' name='email' autoComplete='on' required />
+                <input placeholder='Password' type='password' name='password' autoComplete='on' required />
                 <Link href='/resetPassword' style={{ marginLeft: 'auto', fontSize: '0.8rem' }}>Forgot password?</Link>
                 {!errorStatus ? null :
                     <ErrorMessage onClick={() => setErrorStatus(false)} text={errorText} />

@@ -8,6 +8,8 @@ import { useAppSelector } from "@/store/store"
 import { DocumentData, doc, onSnapshot } from "firebase/firestore";
 import { FIREBASE_DB } from "@/firebase/config";
 import { ComponentLoading, PageLoading } from "@/app/_components/loadings";
+import { useDispatch } from "react-redux";
+import { setProject } from "@/store/features/projectSlice";
 
 const Tasks = dynamic(() => import('./tasks'), { loading: () => <PageLoading /> })
 const Members = dynamic(() => import('./members'), { loading: () => <PageLoading /> })
@@ -21,6 +23,7 @@ const TABS = [
 
 export default function Project({ params }: { params: { projectId: string } }) {
     const [currentTab, setCurrentTab] = useState<any>()
+    const dispatch = useDispatch()
     const searchParams = useSearchParams()
     const search = searchParams.get('tab')
     const currentUser = useAppSelector((state) => state.authReducer.user)
@@ -32,6 +35,7 @@ export default function Project({ params }: { params: { projectId: string } }) {
         const projectDoc = doc(FIREBASE_DB, 'projects', params.projectId);
         const unsubscribe = onSnapshot(projectDoc, (snap) => {
             var projectObj = Object.assign({ id: snap.id }, snap.data())
+            dispatch(setProject(projectObj))
             setCurrentProject(projectObj);
             setLoading(false)
         });
@@ -58,7 +62,7 @@ export default function Project({ params }: { params: { projectId: string } }) {
                     <Link key={tab.label} href={tab.href} scroll={false}
                         className={`tab flex-center ${tab == currentTab ? 'active' : null}`}
                     >
-                        <h2 className="tab-label"> {tab.label} </h2>
+                        <p className="tab-label">{tab.label}</p>
                     </Link>
                 ))}
             </nav>

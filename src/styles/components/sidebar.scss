@@ -40,16 +40,10 @@
                 aspect-ratio: 1;
                 border-radius: 8px;
                 border: 1px solid $gray-border;
-                font-family: 'OstrovskyBold';
-                font-size: 1rem;
+                font-size: 12px;
             }
 
-            .username {
-                font-size: 1.2rem;
-                font-family: 'FinlandicaRegular';
-                text-overflow: ellipsis;
-                overflow: hidden;
-            }
+            .username { font-size: 1.2rem; }
         }
 
         .action-container {

@@ -10,7 +10,7 @@
     .board {
         display: grid;
         grid-template-rows: $row-height 1fr 36px;
-        width: 250px;
+        width: 200px;
         max-height: 100%;
         border: 1px solid $gray-border;
         border-radius: 8px;
@@ -19,35 +19,77 @@
         .board-header {
             position: relative;
             display: inline-flex;
+            justify-content: space-between;
             align-items: center;
             height: 100%;
             padding-inline: 8px;
             border-bottom: 1px solid;
             word-break: break-all;
 
-            .board-background { opacity: 0.3; }
-            .board-name { mix-blend-mode: difference; }
+            .board-background { opacity: 0.4; }
+            .board-name {
+                max-height: 100%;
+                mix-blend-mode: difference;
+                overflow: auto;
+
+                h3 { font-size: 1rem; }
+            }
+            .board-option {
+                min-width: 24px; max-width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                mix-blend-mode: difference;
+            }
         }
         
         .tasks {
             position: relative;
-            display: grid;
-            grid-template-rows: repeat(auto-fill, 80px);
-            gap: 8px;
-            padding-block: 8px;
+            padding-top: 8px;
             overflow-y: auto;
 
             .tasks-background { opacity: 0.05; }
-
+            .tasks-loading { height: 32px; }
             .task {
-                height: 100%;
-                background-color: blanchedalmond;
+                position: relative;
+                display: flex; flex-direction: column;
+                max-width: 100%;
+                margin-bottom: 4px;
+                padding: 8px;
+                margin-inline: 4px;
+                gap: 8px;
+                background-color: $secondary-color;
+                border-width: 1px;
+                border-style: solid;
+                border-radius: 8px;
+                border-color: $gray-border;
+                cursor: pointer;
+                overflow: hidden;
+                
+                p { font-size: 0.8rem; }
+                .title { font-size: 1rem; }
+                .priority-container {
+                    display: inline-flex; align-items: center;
+                    gap: 4px;
+                    .priority {
+                        width: fit-content;
+                        padding: 4px 8px;
+                        border-style: solid;
+                        border-width: 1px;
+                        border-radius: 6px;
+                    }
+                }
+                .created-at { text-align: end; color: $gray; }
+
+                .low { color: $blue-color; background-color: $blue-color-background; border-color: $blue-color; }
+                .medium { color: $orange-color; background-color: $orange-color-background; border-color: $orange-color; }
+                .high { color: $red-color; background-color: $red-color-background; border-color: $red-color; }
             }
         }
 
-        .board-background, .tasks-background {
+        .board-background, .tasks-background, .task-background {
             position: absolute;
             top: 0; bottom: 0; left: 0; right: 0;
+            z-index: -1;
         }
 
         .task-create {
@@ -72,6 +114,7 @@
             text-wrap: nowrap;
             text-decoration: none;
 
+            h3 { font-size: 1rem; }
             svg { width: 24px; height: 24px; }
         }
     }
@@ -81,7 +124,7 @@
     .button-plus {
         border: none !important;
     }
-    .button-plus, .task-create {
+    .button-plus, .task-create, .board-option {
         opacity: 0.6;
         transition: all ease 0.2s;
 

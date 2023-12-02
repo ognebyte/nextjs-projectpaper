@@ -20,13 +20,7 @@ header {
             overflow: hidden;
             text-wrap: nowrap;
 
-            .title {
-                font-size: clamp(1.5rem, 5vw, 2rem);
-                font-family: 'FinlandicaMedium';
-                font-weight: normal;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
+            .title { font-size: clamp(1.5rem, 5vw, 2rem); }
         }
     }
 

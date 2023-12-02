@@ -21,11 +21,6 @@ const SignUp = () => {
         let username = (formData.get('username') as string).trim()
         let email = (formData.get('email') as string).trim()
         let password = (formData.get('password') as string).trim()
-        if (username.length == 0 || email.length == 0 || password.length == 0) {
-            setErrorText('Not all fields are filled')
-            setErrorStatus(true)
-            return 0
-        }
         await createUserWithEmailAndPassword(FIREBASE_AUTH, email, password)
             .then(async (userDoc) => {
                 await updateProfile(userDoc.user, { displayName: username })
@@ -47,9 +42,9 @@ const SignUp = () => {
         <form className='form' action={signUp}>
             <h1 className='form-title'>Create new account</h1>
             <div className='form-inputs'>
-                <input placeholder='Username' type='text' name='username' autoComplete='off' />
-                <input placeholder='Email' type='email' name='email' autoComplete='on' />
-                <input placeholder='Password' type='password' name='password' autoComplete='on' />
+                <input placeholder='Username' type='text' name='username' autoComplete='off' required />
+                <input placeholder='Email' type='email' name='email' autoComplete='on' required />
+                <input placeholder='Password' type='password' name='password' autoComplete='on' required />
                 {!errorStatus ? null :
                     <ErrorMessage onClick={() => setErrorStatus(false)} text={errorText} />
                 }

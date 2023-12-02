@@ -26,25 +26,22 @@
     width: 100%;
     padding: 4px 8px;
     gap: 4px;
-    background-color: $error-color-background;
-    border: 2px solid $error-color;
+    background-color: $red-color-background;
+    border: 2px solid $red-color;
     border-radius: 8px;
 
-    .error-message { color: $error-color; }
+    .error-message { color: $red-color; }
 }
 
 @media (hover: hover) {
-    .button-default, .button-secondary {
-        opacity: 0.8;
-        &:hover {
-            opacity: 1;
-        }
+    .button-default, .button-secondary, .close-button {
+        opacity: 0.7;
+        &:hover { opacity: 1; }
     }
 
     .close-button {
-        opacity: 0.5;
         &:hover {
-            background-color: color-mix(in srgb, $error-color, #FFFFFF 50%);
+            background-color: $hover-light;
         }
     }
 }

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { DocumentData } from "firebase/firestore";
-import getDocById from "@/firebase/features/getDoc";
+import { getDocById } from "@/firebase/features/getDoc";
 import { ComponentLoading } from "@/app/_components/loadings";
 import moment from "moment";
 
@@ -49,11 +49,11 @@ export default function Members({ project, currentUser }: { project: any, curren
                     {members.map((member) => (
                         <li key={member.id} className="member">
                             <div className="avatar-container flex-center">
-                                <p className="avatar flex-center"
+                                <h1 className="avatar flex-center"
                                     style={{ backgroundColor: COLORS[Math.floor(Math.random() * 8)] }}
                                 >
                                     {member.username[0]}
-                                </p>
+                                </h1>
                             </div>
                             <div className="username-container">
                                 <p className="username"> {member.username} </p>
@@ -63,7 +63,7 @@ export default function Members({ project, currentUser }: { project: any, curren
                             </div>
                             <p className="email"> {member.email} </p>
                             <p className="role"> {member.role} </p>
-                            <p className="joined"> {moment.unix(member.joined).format('MMM DD, YYYY')} </p>
+                            <p className="joined"> {moment.unix(member.joined).format('ll')} </p>
                         </li>
                     ))
                     }

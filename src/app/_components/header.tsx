@@ -26,7 +26,7 @@ export default function Header() {
                     {isHide ? <Menu /> : <Close />}
                 </button>
                 <button className="title-container" onClick={() => window.scrollTo(0, 0)}>
-                    <h1 className="title">{headerTitle}</h1>
+                    <h2 className="title">{headerTitle}</h2>
                 </button>
             </div>
             <Sidebar isHide={isHide} hide={() => setIsHide(true)} />

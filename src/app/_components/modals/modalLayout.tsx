@@ -5,14 +5,14 @@ import { AnimatePresence, motion } from "framer-motion";
 import { PageLoading } from "../loadings";
 
 const ModalCreateProject = dynamic(() => import('./modalCreateProject'), { loading: () => <PageLoading /> })
-const ModalCreateTask = dynamic(() => import('./modalCreateTask'), { loading: () => <PageLoading /> })
+const ModalTask = dynamic(() => import('./modalTask'), { loading: () => <PageLoading /> })
 
 
 type modalsType = { [propKey: string]: any };
 
 const modals: modalsType = {
     createProject: ModalCreateProject,
-    createTask: ModalCreateTask,
+    task: ModalTask,
 };
 
 

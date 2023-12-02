@@ -37,7 +37,7 @@ export default function Sidebar({ isHide, hide }: { isHide: boolean, hide: any }
                 <p className="email"> {currentUser.email} </p>
                 <div className="profile">
                     <div className="photo">
-                        {currentUser.username != undefined ? currentUser.username[0] : null
+                        {currentUser.username != undefined ? <h1>{currentUser.username[0]}</h1> : null
                             // <Image src={currentUser.photoURL} alt="profile-photo" fill />
                         }
                     </div>

@@ -1,6 +1,6 @@
 import { Metadata, ResolvingMetadata } from 'next'
 import { redirect } from 'next/navigation'
-import getDocById from '@/firebase/features/getDoc'
+import { getDocById } from '@/firebase/features/getDoc'
 
 
 type Props = {
