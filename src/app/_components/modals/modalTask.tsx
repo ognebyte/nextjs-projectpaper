@@ -1,17 +1,16 @@
-import { cache, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ButtonClose, ButtonSubmit } from "@/app/_components/buttons";
+import { ButtonClose, ButtonDelete, ButtonSubmit } from "@/app/_components/buttons";
 import { useAppSelector } from "@/store/store";
-import { DocumentData, arrayUnion, collection, deleteDoc, doc, documentId, getDocs, query, updateDoc, where } from "firebase/firestore";
+import { DocumentData, collection, doc, documentId, getDocs, query, updateDoc, where } from "firebase/firestore";
 import { FIREBASE_DB } from "@/firebase/config";
 import moment from "moment";
+
 import { PageLoading } from "../loadings";
 import { sortArrByArrOrder } from "@/app/_utils/sort";
 import { getDocById } from "@/firebase/features/getDoc";
-import { addDocByCollection } from "@/firebase/features/addDoc";
-import { setDocById } from "@/firebase/features/setDoc";
-
-
+import { addDocTask, deleteDocTask } from "@/firebase/features/task";
+import ColorDot from "../colorDot";
 
 
 export default function ModalTask() {
@@ -29,6 +28,7 @@ export default function ModalTask() {
         date: '', time: '', priority: '',
     })
     const [loading, setLoading] = useState(true)
+    const errorText = 'Something went wrong! Please try again later.'
 
     useEffect(() => {
         if (!selectedBoard || !currentProject.id) replace('?')
@@ -65,44 +65,6 @@ export default function ModalTask() {
         setLoading(false);
     }
 
-
-    async function updateTask(formData: FormData) {
-        try {
-            const updatedTask = Object.assign(getFormData(formData), { updatedAt: moment().unix() })
-            if (inputs.board == updatedTask.board) {
-                await updateDoc(doc(FIREBASE_DB, boardsRef + `${inputs.board}/tasks/${inputs.id}`), updatedTask)
-                    .then(() => replace('?'));
-            }
-            else {
-                var board = boards.find((el: any) => el.id == inputs.board)
-                var index = board.tasks.indexOf(inputs.id)
-                if (index != -1) {
-                    board.tasks.splice(index, 1)
-                    await Promise.all([
-                        setDocById(boardsRef + `${inputs.board}`, board),
-                        deleteDoc(doc(FIREBASE_DB, boardsRef + `${inputs.board}/tasks/${inputs.id}`))
-                    ])
-                    const taskId = await addDocByCollection(boardsRef + `${updatedTask.board}/tasks`, updatedTask)
-                    await updateDoc(doc(FIREBASE_DB, boardsRef + `${updatedTask.board}`), { tasks: arrayUnion(taskId) })
-                        .then(() => replace('?'))
-                }
-            }
-        } catch (error) {
-            alert('Something went wrong! Please try again later.')
-        }
-    }
-
-    async function createTask(formData: FormData) {
-        try {
-            const task = getFormData(formData)
-            const taskId = await addDocByCollection(boardsRef + `${task.board}/tasks`, task)
-            await updateDoc(doc(FIREBASE_DB, boardsRef + `${task.board}`), { tasks: arrayUnion(taskId) })
-                .then(() => replace('?'))
-        } catch (error) {
-            alert('Something went wrong! Please try again later.')
-        }
-    }
-
     function getFormData(formData: FormData) {
         return {
             board: formData.get('board'),
@@ -116,23 +78,63 @@ export default function ModalTask() {
         }
     }
 
+    async function updateTask(task: any) {
+        try {
+            const updatedTask = Object.assign(task, { updatedAt: moment().unix() })
+            if (inputs.board == updatedTask.board) {
+                await updateDoc(doc(FIREBASE_DB, boardsRef + `${inputs.board}/tasks/${inputs.id}`), updatedTask)
+                    .then(() => replace('?'));
+            }
+            else {
+                if (await deleteTask()) {
+                    const res = await addDocTask(currentProject.id, updatedTask.board, updatedTask)
+                    if (res) replace('?')
+                }
+            }
+        } catch (error) {
+            alert(errorText)
+        }
+    }
+
+    async function createTask(task: any) {
+        try {
+            const res = await addDocTask(currentProject.id, task.board, task)
+            if (res) replace('?')
+        } catch (error) {
+            alert(errorText)
+        }
+    }
+
+    async function deleteTask() {
+        const res = await deleteDocTask(currentProject.id, inputs.board, inputs.id, [...boards])
+        return res
+    }
+
     return loading ? <PageLoading /> : (
-        <form className='form' action={taskParam ? updateTask : createTask}
+        <form className='form' action={formData => {
+                const updatedTask: {} = getFormData(formData)
+                return taskParam ? updateTask(updatedTask) : createTask(updatedTask)
+            }}
             style={{ borderRight: `4px solid ${boards.find((el: any) => el.id == selectedBoard).color}` }}
         >
             <div className='form-inputs'>
-                <div className="input-container" style={{ justifyContent: 'center' }}>
-                    <h3>Board:</h3>
-                    <select name="board" value={selectedBoard} onChange={e => setSelectedBoard(e.target.value)}>
-                        {boards.map((board: any) =>
-                            <option key={board.id} value={board.id}>
-                                {board.name}
-                            </option>
-                        )}
-                    </select>
-                    <span className="board-color"
-                        style={{ backgroundColor: boards.find((el: any) => el.id == selectedBoard).color }}
-                    />
+                <div className="input-container board-container">
+                    <div className="board">
+                        <h3>Board:</h3>
+                        <select name="board" value={selectedBoard} onChange={e => setSelectedBoard(e.target.value)}>
+                            {boards.map((board: any) =>
+                                <option key={board.id} value={board.id}>
+                                    {board.name}
+                                </option>
+                            )}
+                        </select>
+                        <ColorDot width={24} height={24}
+                            color={boards.find((el: any) => el.id == selectedBoard).color}
+                        />
+                    </div>
+                    {!taskParam ? null :
+                        <ButtonDelete color="rgb(181, 48, 44)" onClick={async () => await deleteTask() ? replace('?') : alert(errorText)} />
+                    }
                 </div>
                 <input placeholder="Title" name="title" className="title" defaultValue={inputs.title} required />
                 <div className="input-container">

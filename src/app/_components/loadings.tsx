@@ -1,6 +1,6 @@
 export function PageLoading({ color = '#111111' }) {
     return (
-        <div className="page-loading">
+        <div className="page-loading flex-center">
             <div className="svg-container">
                 <ComponentLoading color={color} />
             </div>

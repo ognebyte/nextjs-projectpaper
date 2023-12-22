@@ -1,61 +1,64 @@
 .members-container {
-    display: grid;
-    border-radius: 8px;
-    background-color: $gray-light;
-    grid-template-rows: $row-height 1fr;
-    max-height: 100%;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
     min-width: 550px;
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    gap: 16px;
 
-    .member, .column-name {
-        display: grid;
-        grid-template-columns: 47px 0.3fr 0.3fr 0.2fr 0.2fr;
-        justify-items: left;
+    .project-link {
+        display: inline-flex;
         align-items: center;
         height: $row-height;
-        padding-inline: 8px;
         gap: 8px;
-        border-bottom: 1px solid $gray-border;
-        text-wrap: nowrap;
+        border-radius: 8px;
         overflow: hidden;
-    }
 
-    .column-name {
-        h3 { color: $gray; font-size: 1.1rem; }
-        .sort {
-            width: 100%; height: 100%;
-            svg { height: 28px; width: 28px; }
+        .link {
+            max-width: 280px;
+            background-color: $gray-light;
+        }
+
+        button {
+            width: 80px;
         }
     }
 
-    .members {
-        display: grid;
-        grid-template-rows: repeat(auto-fill, $row-height);
-        padding-bottom: 16px;
-        overflow: auto;
 
-        .member {
-            .avatar-container {
-                width: 100%; height: 100%;
-                
-                .avatar {
-                    width: 36px; height: 36px;
-                    border-radius: 50%;
-                    font-size: 24px;
-                }
+    .table {
+        flex: 1;
+        min-height: 300px;
+        border-radius: 8px;
+        border-style: solid;
+        border-color: $gray-border;
+        background-color: $gray-light;
+        overflow: hidden;
+
+        .action {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+
+            button {
+                width: 28px;
+                height: 28px;
+                border-radius: 50%;
             }
+        }
 
-            p { max-width: 100%; }
-            .username-container {
-                display: inline-flex;
-                justify-self: flex-start;
-                gap: 4px;
-                overflow: hidden;
+        .avatar-container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            align-items: center;
 
-                .you { min-width: min-content; }
+            .avatar {
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                font-size: 24px;
             }
-            .email { color: $gray; }
         }
     }
 }

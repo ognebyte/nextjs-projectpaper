@@ -1,0 +1,71 @@
+.overview-container {
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: 16px;
+
+    .overview-block {
+        display: flex;
+        flex-direction: column;
+        padding: 12px;
+        gap: 12px;
+        border-radius: 6px;
+        background-color: $gray-light;
+    }
+
+    .overview-primary, .overview-secondary {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    .overview-primary {
+        .title {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 2rem;
+            word-break: break-all;
+        }
+        .project-boards {
+            .progress {
+                display: inline-flex;
+                width: 100%; height: 16px;
+                border-radius: 8px;
+                overflow: hidden;
+                border: 1px solid $gray-border;
+            }
+    
+            .info {
+                display: inline-flex;
+                flex-wrap: wrap;
+                gap: 12px;
+    
+                .board {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 4px;
+                }
+            }
+        }
+
+        .project-members {
+            .members {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    }
+
+    .overview-secondary {
+        .description {
+            white-space: break-spaces;
+            word-break: break-all;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .overview-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}

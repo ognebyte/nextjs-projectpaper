@@ -9,7 +9,14 @@
 
     .form-inputs, .form-buttons {
         display: flex; flex-direction: column;
-        align-items: center;
         width: 100%; gap: 8px;
+        
+        .title { font-size: 2rem; }
+        .description { min-height: 120px; }
+
+        .requests {
+            display: inline-flex; align-items: center; gap: 8px;
+            input { min-width: 20px; max-width: 20px; height: 20px; }
+        }
     }
 }

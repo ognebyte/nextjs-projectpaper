@@ -6,6 +6,8 @@ import { PageLoading } from "../loadings";
 
 const ModalCreateProject = dynamic(() => import('./modalCreateProject'), { loading: () => <PageLoading /> })
 const ModalTask = dynamic(() => import('./modalTask'), { loading: () => <PageLoading /> })
+const ModalBoard = dynamic(() => import('./modalBoard'), { loading: () => <PageLoading /> })
+const ModalRequests = dynamic(() => import('./modalRequests'), { loading: () => <PageLoading /> })
 
 
 type modalsType = { [propKey: string]: any };
@@ -13,6 +15,8 @@ type modalsType = { [propKey: string]: any };
 const modals: modalsType = {
     createProject: ModalCreateProject,
     task: ModalTask,
+    board: ModalBoard,
+    requests: ModalRequests,
 };
 
 

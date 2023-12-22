@@ -6,7 +6,7 @@ import { useAppSelector } from '@/store/store'
 import { DocumentData, collection, onSnapshot, orderBy, query, where } from 'firebase/firestore';
 import { FIREBASE_DB } from '@/firebase/config';
 
-import RightArrow from '@/assets/svg/right-arrow';
+import ExternalLink from '@/assets/svg/external-link';
 import { ComponentLoading } from '@/app/_components/loadings';
 
 
@@ -56,7 +56,7 @@ export default function Dashboard() {
                                 <div className="info">
                                     <h2 className='title'>{project.title}</h2>
                                 </div>
-                                <RightArrow />
+                                <ExternalLink />
                             </Link>
                         ))}
                     </div>

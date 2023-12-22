@@ -5,16 +5,16 @@ $padding: 48px;
 
 .dashboard {
     max-width: $content-max-width * $content-max-count + $content-gap * ($content-max-count - 1) + ($padding * 2);
-    height: 100%; min-height: 500px;
+    height: 100%;
     margin: auto;
-    padding-top: $header-height + 16px;
-    padding-bottom: 32px;
+    padding-top: $header-height + 8px;
     padding-inline: $padding;
 }
 
 .dashboard-container {
     display: flex;
     flex-direction: column;
+    padding-bottom: 16px;
     margin: auto;
 
     .dashboard-loading {
@@ -54,7 +54,6 @@ $padding: 48px;
                 
                 .title {
                     font-weight: normal;
-                    font-size: clamp(1rem, 5vw, 1.5rem);
                     overflow: hidden;
                     text-overflow: ellipsis;
                 }
@@ -69,7 +68,6 @@ $padding: 48px;
     .dashboard {
         padding-inline: 24px;
         .dashboard-container {
-
             .dashboard-empty { font-size: 1.2rem; }
             .dashboard-content {
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -82,7 +80,6 @@ $padding: 48px;
     .dashboard {
         padding-inline: 16px;
         .dashboard-container {
-
             .dashboard-empty { font-size: 1rem; }
         }
     }

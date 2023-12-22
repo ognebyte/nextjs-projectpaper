@@ -30,10 +30,12 @@ export default function DashboardLayout({
 
 
     return pageLoading ? <PageLoading /> : (
-        <div className="dashboard">
+        <>
             <Header />
-            {children}
-            <ModalLayout modalParam={modalParam} />
-        </div>
+            <div className="dashboard">
+                {children}
+                <ModalLayout modalParam={modalParam} />
+            </div>
+        </>
     )
 }

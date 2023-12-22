@@ -6,19 +6,23 @@ export interface ProjectState {
     title: string;
     description: string;
     color: string;
-    createdAt: string;
-    members: [];
-    boards: [];
+    createdAt: number;
+    members: string[];
+    boards: string[];
+    requestsToJoin: string[];
+    requests: boolean | undefined;
 }
 
 const initialState: ProjectState = {
-        id: '',
-        title: '',
-        description: '',
-        color: '',
-        createdAt: '',
-        members: [],
-        boards: [],
+    id: '',
+    title: '',
+    description: '',
+    color: '',
+    createdAt: NaN,
+    members: [],
+    boards: [],
+    requests: undefined,
+    requestsToJoin: [],
 }
  
 export const projectSlice = createSlice({

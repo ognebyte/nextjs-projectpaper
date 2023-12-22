@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Sidebar from "@/app/_components/sidebar";
-
 import Menu from "@/assets/svg/menu";
 import Close from "@/assets/svg/close";
-import { usePathname } from "next/navigation";
 
 
 export default function Header() {
-    const currPathname = usePathname()
+    const pathname = usePathname()
     const [headerTitle, setHeaderTitle] = useState('')
     const [isHide, setIsHide] = useState(true)
 
     useEffect(() => {
         setHeaderTitle(document.title)
-    }, [currPathname])
+    }, [pathname])
 
     function showSidebar() {
         setIsHide(!isHide)
@@ -25,9 +25,9 @@ export default function Header() {
                 <button className="sidebar-button" onClick={showSidebar}>
                     {isHide ? <Menu /> : <Close />}
                 </button>
-                <button className="title-container" onClick={() => window.scrollTo(0, 0)}>
+                <div className="title-container">
                     <h2 className="title">{headerTitle}</h2>
-                </button>
+                </div>
             </div>
             <Sidebar isHide={isHide} hide={() => setIsHide(true)} />
         </header>
