@@ -1,32 +1,28 @@
 'use client'
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { ReactElement, useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import { DocumentData, collection, collectionGroup, documentId, onSnapshot, query, where } from "firebase/firestore";
 import { FIREBASE_DB } from "@/firebase/config";
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import moment from "moment";
-
-import { ComponentLoading, PageLoading } from "@/app/_components/loadings";
-import Plus from "@/assets/svg/plus"
-import DotsVertical from "@/assets/svg/dots-vertical";
-import { sortArrByArrOrder } from "@/app/_utils/sort";
 import { deleteDocBoard } from "@/firebase/features/board";
+import { ComponentLoading } from "@/app/_components/loadings";
+import { sortArrByArrOrder } from "@/app/_utils/sort";
 import { useAppSelector } from "@/store/store";
+
+import Table from "@/assets/svg/table";
+import Board from "@/assets/svg/boards";
+
+
+const TasksBoard = dynamic(() => import('./tasksBoard'), { ssr: false })
+const TasksTable = dynamic(() => import('./tasksTable'), { ssr: false })
 
 
 export default function Tasks() {
     const currentProject = useAppSelector((state) => state.projectReducer)
-    const currentUser = useAppSelector((state) => state.authReducer.user)
-    const { replace } = useRouter()
     const [boards, setBoards] = useState<DocumentData>([])
     const [boardsTasks, setBoardsTasks] = useState<DocumentData>()
-    const [isDrag, setIsDrag] = useState(false)
+    const [isBoardsVertical, setIsBoardsVertical] = useState(true)
     const [loading, setLoading] = useState(true)
-    const [selectedBoard, setSelectedBoard] = useState('')
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-    const open = Boolean(anchorEl);
 
 
     useEffect(() => {
@@ -65,95 +61,27 @@ export default function Tasks() {
         }
     }, [boards])
 
-    function allowDrop(e: any) { e.preventDefault(); }
-    function dragStart(e: any) { e.dataTransfer.setData("taskId", e.target.id); }
-    async function drop(e: any, boardId: any) {
-        var data = e.dataTransfer.getData("taskId");
-        console.log(data, boardId)
-    }
-
-    const handleClick = (event: React.MouseEvent<HTMLElement>) => { setAnchorEl(event.currentTarget); };
-    const handleClose = () => { setAnchorEl(null); };
 
     async function deleteBoard(boardId: any) {
         const res = await deleteDocBoard(currentProject.id, boardId, [...currentProject.boards])
     }
 
     return loading ? <div className="content-loading flex-center"><ComponentLoading /></div> :
-        <div className="boards">
-            {!boards ? null :
-                boards.map((board: DocumentData) => (
-                    <div className="board" key={board.id}>
-                        <div className="board-header" style={{ borderColor: board.color }}>
-                            <span className="board-background" style={{ backgroundColor: board.color }} />
-                            <div className="board-name">
-                                <h3>{board.name} ({!board.tasks ? '0' : board.tasks.length})</h3>
-                            </div>
-                            <button className="board-option" onClick={(e: any) => { handleClick(e); setSelectedBoard(board.id) }}>
-                                <DotsVertical />
-                            </button>
-                            <Menu anchorEl={anchorEl} open={open}
-                                onClose={handleClose}
-                                onClick={handleClose}
-                            >
-                                <MenuItem onClick={() => replace(`?modal=board&board=${selectedBoard}`, { scroll: false })}>
-                                    <p>Edit</p>
-                                </MenuItem>
-                                <MenuItem onClick={() => deleteBoard(selectedBoard)}>
-                                    <p style={{ color: 'rgb(181, 48, 44)' }}>Delete</p>
-                                </MenuItem>
-                            </Menu>
-                        </div>
-                        <ul className="tasks" onDrop={e => drop(e, board.id)} onDragOver={allowDrop}>
-                            <span className="tasks-background" style={{ backgroundColor: board.color }} />
-                            {!board.tasks ? null : !boardsTasks ?
-                                <div className="tasks-loading"><ComponentLoading /></div> :
-                                board.tasks.map((taskId: string) => {
-                                    var task = boardsTasks.find((el: any) => el.id === taskId)
-                                    if (!task) return null
-                                    return (
-                                        <li key={taskId} id={taskId} className="task" draggable
-                                            onDragStart={e => dragStart(e)}
-                                            onClick={() => replace(`?modal=task&board=${board.id}&task=${taskId}`, { scroll: false })}
-                                        >
-                                            <p className="title">{task.title}</p>
-                                            {!task.priority ? null :
-                                                <div className="priority-container">
-                                                    <p>Priority:</p>
-                                                    <p className={'priority ' + task.priority}>
-                                                        {task.priority}
-                                                    </p>
-                                                </div>
-                                            }
-                                            {!task.date ? null :
-                                                <p>
-                                                    Due date: {moment.unix(task.date).format('ll')}
-                                                    {!task.time ? null : `, ${task.time}`}
-                                                </p>
-                                            }
-                                            <p className="created-at">
-                                                Created at: {moment.unix(task.createdAt).format('MMM DD, YYYY')}
-                                            </p>
-                                        </li>
-                                    )
-                                })
-                            }
-                        </ul>
-                        <button onClick={() => replace(`?modal=task&board=${board.id}`, { scroll: false })}
-                            className="task-create"
-                        >
-                            <p>Add task</p>
-                        </button>
-                    </div>
-                ))
-            }
-            <div className="board-create">
-                <button onClick={() => replace('?modal=board', { scroll: false })}
-                    className="button-plus flex-center"
+        <div className="tasks-container">
+            <nav className="tasks-type">
+                <button className={`button-type ${isBoardsVertical ? 'active' : ''}`}
+                    onClick={() => setIsBoardsVertical(true)}
                 >
-                    <h3>New board</h3>
-                    <Plus />
+                    Board <Board/>
                 </button>
-            </div>
+                <button className={`button-type ${isBoardsVertical ? '' : 'active'}`}
+                    onClick={() => setIsBoardsVertical(false)}
+                >
+                    Table <Table/>
+                </button>
+            </nav>
+            {isBoardsVertical ? <TasksBoard boards={boards} boardsTasks={boardsTasks} deleteBoard={deleteBoard}/> :
+                <TasksTable boards={boards} boardsTasks={boardsTasks} currentProject={currentProject}/>
+            }
         </div>
 }

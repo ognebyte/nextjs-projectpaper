@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import { useAppSelector } from "@/store/store"
 import { deleteDocProject, updatedDocProject } from "@/firebase/features/project"
@@ -8,14 +8,22 @@ import ColorPicker from "@/app/_components/colorPicker"
 import Trash from "@/assets/svg/trash"
 import { PageLoading } from "@/app/_components/loadings"
 import { ButtonSubmit } from "@/app/_components/buttons"
+import { doc, onSnapshot } from "firebase/firestore"
+import { FIREBASE_DB } from "@/firebase/config"
 
 
 export default function Settings() {
     const currentProject = useAppSelector((state) => state.projectReducer)
+    const currentUser = useAppSelector((state) => state.authReducer.user)
     const { replace } = useRouter()
     const errorText = 'Something went wrong! Please try again later.'
     const [color, setColor] = useState(currentProject.color)
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        if (currentProject.userRole == 'member') return replace(`/project/${currentProject.id}`)
+        setLoading(false)
+    }, [currentProject.userRole])
 
     function getFormData(formData: FormData) {
         return {
@@ -27,25 +35,20 @@ export default function Settings() {
     }
 
     async function updateProject(project: any) {
-        setLoading(true)
         if (await updatedDocProject(currentProject.id, project)) alert('The project has been updated')
         else alert(errorText)
-        setLoading(false)
     }
 
     async function deleteProject() {
         var r = confirm("Delete this project?");
         if (r === true) {
-            setLoading(true)
             if (await deleteDocProject(currentProject.id, currentProject)) replace('/')
             else alert(errorText)
-            setLoading(false)
         }
     }
 
-    return (
+    return loading ? <PageLoading /> :
         <div className="settings-container">
-            {!loading ? null : <PageLoading />}
             <form className='form' action={formData => {
                 const updatedBoard: {} = getFormData(formData)
                 updateProject(updatedBoard)
@@ -60,14 +63,14 @@ export default function Settings() {
                     <ColorPicker defaultValue={color} onChange={(e: any) => setColor(e)} />
                     <div className="requests">
                         <p>Users can send requests to join:</p>
-                        <input type='checkbox' name='requests' defaultChecked={currentProject.requests}/>
+                        <input type='checkbox' name='requests' defaultChecked={currentProject.requests} />
                     </div>
                 </div>
                 <div className="form-buttons">
                     <button type="reset" className="button-secondary" onClick={() => setColor(currentProject.color)}>
                         Cancel
                     </button>
-                    <ButtonSubmit text="Save"/>
+                    <ButtonSubmit text="Save" />
                 </div>
             </form>
             <button className="delete-project" onClick={deleteProject}>
@@ -75,5 +78,4 @@ export default function Settings() {
                 <h3>Delete project</h3>
             </button>
         </div>
-    )
 }

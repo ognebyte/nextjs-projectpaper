@@ -2,16 +2,11 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useAppSelector } from "@/store/store";
-import { DocumentData } from "firebase/firestore";
-import { getProjectMembers } from "@/firebase/features/member";
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+import { FIREBASE_DB } from "@/firebase/config";
+import { DocumentData, doc, updateDoc } from "firebase/firestore";
+import { getProjectMembers, removeProjectMember } from "@/firebase/features/member";
+import { DataGrid, GridActionsCellItem, GridToolbar, GridValueGetterParams, gridClasses } from '@mui/x-data-grid';
 import moment from "moment";
-import { DataGrid, GridColDef, GridToolbar, GridValueGetterParams, gridClasses } from '@mui/x-data-grid';
-import DotsVertical from "@/assets/svg/dots-vertical";
-
-
-const COLORS = ['#8AB4F8', '#F28B82', '#FDD663', '#81C995', '#FF8BCB', '#C58AF9', '#FCAD70', '#78D9EC',]
 
 
 export default function Members() {
@@ -21,25 +16,13 @@ export default function Members() {
     const projectPath = 'project/' + currentProject.id
     const projectLink = sitePath + '/' + projectPath
     const [members, setMembers] = useState<DocumentData[]>([]);
-    const [currentMember, setCurrentMember] = useState<DocumentData>();
-    const [selectedTable, setSelectedTable] = useState('members');
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-    const open = Boolean(anchorEl);
 
     useEffect(() => {
         getMembers()
-    }, [currentProject.members])
-
-    const columnVisibilityModel = useMemo(() => {
-        if (currentMember) {
-            return currentMember.role == 'member' ? { actions: false } : { actions: true };
-        }
-    }, [currentMember]);
+    }, [currentProject.members, currentProject.userRole])
 
     async function getMembers() {
         const arr = await getProjectMembers(currentProject.id, currentProject.members)
-        const res = arr.find(({ userId }) => userId == currentUser.uid)
-        if (res) setCurrentMember(res)
         setMembers(arr)
     }
 
@@ -53,23 +36,28 @@ export default function Members() {
         }, 1000);
     }
 
-    const handleClick = (event: React.MouseEvent<HTMLElement>) => { setAnchorEl(event.currentTarget); };
-    const handleClose = () => { setAnchorEl(null); };
-
-    async function dismissAdmin(id: any) {
-        console.log("dadmin", id)
-    }
-    async function makeAdmin(id: any) {
-        console.log("admin", id)
+    async function toggleAdmin(id: any, role: any) {
+        await updateDoc(doc(FIREBASE_DB, `users/${id}/projects/${currentProject.id}`), {
+            role: role == 'member' ? 'admin' : 'member'
+        })
+        getMembers()
     }
     async function remove(id: any) {
-        console.log("remove", id)
+        var r = confirm("Remove member?");
+        if (r === true) {
+            if (!await removeProjectMember(currentProject.id, id))
+                alert('Something went wrong! Please try again later.')
+        }
     }
+
+    const columnVisibilityModel = useMemo(() => {
+        if (currentProject.userRole) { return currentProject.userRole == 'member' ? { actions: false } : { actions: true }; }
+    }, [currentProject.userRole]);
 
 
     return (
         <div className="members-container">
-            {!currentProject.requests ? null :
+            {!currentProject.userRole ? null : currentProject.userRole == 'member' ? null : !currentProject.requests ? null :
                 <div className="project-link">
                     <p>Invite link:</p>
                     <input className="link" type="text" defaultValue={projectPath} readOnly={true} />
@@ -78,17 +66,14 @@ export default function Members() {
             }
             <DataGrid className="table"
                 loading={members.length == 0}
-                rows={members}
                 columns={[
                     {
                         field: 'avatar', headerName: 'Avatar', width: 80, sortable: false, filterable: false,
-                        valueGetter: (params: GridValueGetterParams) => params.row.username[0],
+                        valueGetter: (params: GridValueGetterParams) => ({ letter: params.row.username[0], color: params.row.color }),
                         renderCell: ({ value }) => (
-                            <div className="avatar-container">
-                                <h1 className="avatar flex-center" style={{ backgroundColor: COLORS[Math.floor(Math.random() * 8)] }}>
-                                    {value}
-                                </h1>
-                            </div>
+                            <h1 className="avatar flex-center" style={{ backgroundColor: value.color }}>
+                                {value.letter}
+                            </h1>
                         ),
                     },
                     { field: 'username', headerName: 'Username', width: 200, type: "string" },
@@ -100,32 +85,29 @@ export default function Members() {
                         renderCell: ({ value }) => moment(value).format('ll'),
                     },
                     {
-                        field: 'actions', headerName: 'Actions', width: 80, sortable: false, filterable: false,
-                        valueGetter: (params: GridValueGetterParams) => ({ id: params.row.id, role: params.row.role }),
-                        renderCell: ({ value }) => (
-                            value.role == 'owner' ? null :
-                                <div className="action">
-                                    <button className="board-option" onClick={(e: any) => handleClick(e)}>
-                                        <DotsVertical />
-                                    </button>
-                                    <Menu anchorEl={anchorEl} open={open}
-                                        onClose={handleClose}
-                                        onClick={handleClose}
-                                    >
-                                        <MenuItem onClick={() => value.role == 'admin' ? dismissAdmin(value.id) : makeAdmin(value.id)}>
-                                            <p>{value.role == 'admin' ? 'Dismiss Admin' : 'Make admin'}</p>
-                                        </MenuItem>
-                                        <MenuItem onClick={() => remove(value.id)}>
-                                            <p style={{ color: 'rgb(181, 48, 44)' }}>Remove</p>
-                                        </MenuItem>
-                                    </Menu>
-                                </div>
-                        )
-                    }
+                        field: 'actions', width: 80, type: "actions", sortable: false, filterable: false,
+                        getActions: (params) => params.row.role == 'owner' ? [] : !currentProject.userRole ? [] :
+                            params.row.role == 'admin' && currentProject.userRole == 'admin' ? [] : [
+                                <GridActionsCellItem
+                                    label={params.row.role == 'admin' ? 'Dismiss Admin' : 'Make Admin'}
+                                    onClick={() => toggleAdmin(params.id, params.row.role)}
+                                    showInMenu
+                                />,
+                                <GridActionsCellItem
+                                    label="Remove member"
+                                    style={{color: 'rgb(181, 48, 44)'}}
+                                    onClick={() => remove(params.id)}
+                                    disabled={!currentProject.userRole ? true : (params.row.role == 'admin' && currentProject.userRole == 'admin' ? true : false)}
+                                    showInMenu
+                                />,
+                            ]
+                    },
                 ]}
+                rows={members}
+                getRowId={(row) => row.userId}
+                initialState={{ pagination: { paginationModel: { page: 0, pageSize: 50 }, } }}
                 slots={{ toolbar: GridToolbar }}
                 slotProps={{ toolbar: { showQuickFilter: true, } }}
-                initialState={{ pagination: { paginationModel: { page: 0, pageSize: 50 }, } }}
                 pageSizeOptions={[50, 100, 150, 200]}
                 columnVisibilityModel={columnVisibilityModel}
                 disableColumnSelector

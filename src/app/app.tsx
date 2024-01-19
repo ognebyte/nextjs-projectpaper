@@ -1,11 +1,12 @@
 'use client'
 
 import { useEffect } from 'react'
-import { FIREBASE_AUTH } from '@/firebase/config'
+import { FIREBASE_AUTH, FIREBASE_DB } from '@/firebase/config'
 import { useDispatch } from 'react-redux'
 import { logIn, notLogged } from '@/store/features/authSlice'
 import { onAuthStateChanged } from 'firebase/auth'
 import { useSearchParams } from 'next/navigation'
+import { doc, getDoc } from 'firebase/firestore'
 
 
 export default function App({ children }: { children: React.ReactNode }) {
@@ -14,16 +15,11 @@ export default function App({ children }: { children: React.ReactNode }) {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(FIREBASE_AUTH, (user) => {
+        const unsubscribe = onAuthStateChanged(FIREBASE_AUTH, async (user) => {
             if (!user) dispatch(notLogged())
             else {
-                var obj = {
-                    username: user.displayName,
-                    email: user.email,
-                    uid: user.uid,
-                    photoURL: user.photoURL
-                }
-                dispatch(logIn(obj))
+                const obj = await getDoc(doc(FIREBASE_DB, 'users', user.uid))
+                dispatch(logIn(Object.assign({ uid: user.uid }, obj.data())))
             }
         })
         return () => unsubscribe()

@@ -10,16 +10,16 @@ type Props = {
     searchParams: { [key: string]: string | string[] | undefined }
 }
 
-// export async function generateMetadata(
-//     { params, searchParams }: Props,
-//     parent: ResolvingMetadata
-// ): Promise<Metadata> {
-//     const project = await getDocById(params.projectId, 'projects')
-//     return !project ? {} : {
-//         title: project.title,
-//         description: project.description,
-//     }
-// }
+export async function generateMetadata(
+    { params, searchParams }: Props,
+    parent: ResolvingMetadata
+): Promise<Metadata> {
+    const project = await getDocById(params.projectId, 'projects')
+    return !project ? {} : {
+        title: project.title,
+        description: project.description,
+    }
+}
 
 
 export default async function ProjectLayout({

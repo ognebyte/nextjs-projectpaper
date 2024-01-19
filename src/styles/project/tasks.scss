@@ -1,4 +1,33 @@
-.boards {
+.tasks-container {
+    display: grid;
+    grid-template-rows: 32px 1fr;
+    height: 100%;
+    max-height: 100%;
+    gap: 12px;
+
+    .tasks-type {
+        display: inline-flex;
+        gap: 8px;
+
+        .button-type {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 4px 8px;
+            gap: 4px;
+            border: 1px solid $gray-border;
+            border-radius: 8px;
+
+            svg { width: 24px; }
+        }
+        .active {
+            opacity: 1;
+            background-color: $hover-light;
+        }
+    }
+}
+
+.tasks-board {
     display: inline-flex;
     padding-inline: 16px;
     gap: 8px;
@@ -9,7 +38,8 @@
     .board {
         display: grid;
         grid-template-rows: $row-height 1fr 36px;
-        width: 200px;
+        min-width: 200px;
+        max-width: 200px;
         max-height: 100%;
         border: 1px solid $gray-border;
         border-radius: 8px;
@@ -79,24 +109,24 @@
                 }
                 .created-at { text-align: end; color: $gray; }
 
-                .low { color: $blue-color; background-color: $blue-color-background; border-color: $blue-color; }
-                .medium { color: $orange-color; background-color: $orange-color-background; border-color: $orange-color; }
-                .high { color: $red-color; background-color: $red-color-background; border-color: $red-color; }
+                .priority-1 { color: $blue-color; background-color: $blue-color-background; border-color: $blue-color; }
+                .priority-2 { color: $orange-color; background-color: $orange-color-background; border-color: $orange-color; }
+                .priority-3 { color: $red-color; background-color: $red-color-background; border-color: $red-color; }
             }
         }
-
-        .board-background, .tasks-background, .task-background {
-            position: absolute;
-            top: 0; bottom: 0; left: 0; right: 0;
-            z-index: -1;
-        }
-
+        
         .task-create {
             display: inline-flex;
             justify-content: center;
             align-items: center;
             border-top: 1px solid $gray-border;
             text-decoration: none;
+        }
+
+        .board-background, .tasks-background, .task-background {
+            position: absolute;
+            top: 0; bottom: 0; left: 0; right: 0;
+            z-index: -1;
         }
     }
 
@@ -119,11 +149,69 @@
     }
 }
 
+.tasks-table {
+    display: grid;
+    grid-template-rows: 40px 1fr;
+    // grid-template-columns:  1fr;
+    height: 100%;
+    max-height: 100%;
+    gap: 8px;
+    
+    .boards-container {
+        display: grid;
+        grid-template-columns: 1fr 90px;
+        // justify-content: space-between;
+        width: 100%;
+
+        .board-new {
+            border-left: 1px solid $gray-border;
+            &:hover { background-color: $hover-light; }
+        }
+
+        .boards {
+            display: inline-flex;
+            padding-right: 8px;
+            gap: 4px;
+            overflow-x: auto;
+            &::-webkit-scrollbar { display: none; }
+    
+            .board {
+                min-width: fit-content;
+                padding: 4px 8px;
+                text-wrap: nowrap;
+                border: 2px solid transparent;
+                border-radius: 8px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+    
+            .active {
+                opacity: 1;
+                border-color: $gray-border;
+            }
+        }
+    }
+
+    .table {
+        .priority {
+            div {
+                padding: 4px 8px;
+                border: 1px solid;
+                border-radius: 8px;
+            }
+            .priority-1 { color: $blue-color; background-color: $blue-color-background; border-color: $blue-color; }
+            .priority-2 { color: $orange-color; background-color: $orange-color-background; border-color: $orange-color; }
+            .priority-3 { color: $red-color; background-color: $red-color-background; border-color: $red-color; }
+        }
+    }
+}
+
+
 @media (hover: hover) {
-    .button-plus {
+    .button-plus, .button-type {
         border: none !important;
     }
-    .button-plus, .task-create, .board-option {
+    .button-plus, .task-create, .board-option, .button-type {
         transition: all ease 0.2s;
 
         &:hover {

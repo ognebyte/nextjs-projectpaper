@@ -11,6 +11,9 @@ import { doc, setDoc } from 'firebase/firestore';
 import moment from 'moment';
 
 
+const COLORS = ['#8AB4F8', '#F28B82', '#FDD663', '#81C995', '#FF8BCB', '#C58AF9', '#FCAD70', '#78D9EC',]
+
+
 const SignUp = () => {
     const [errorStatus, setErrorStatus] = useState(false)
     const [errorText, setErrorText] = useState('')
@@ -29,6 +32,7 @@ const SignUp = () => {
                     username: username,
                     email: email,
                     createdAt: moment().unix(),
+                    color: COLORS[Math.floor(Math.random() * 8)],
                 })
                 router.push('/')
             })

@@ -4,7 +4,7 @@ import ColorDot from "@/app/_components/colorDot"
 import { ComponentLoading, PageLoading } from "@/app/_components/loadings"
 import { sortArrByArrOrder } from "@/app/_utils/sort"
 import { getCollectionBoards } from "@/firebase/features/board"
-import { getProjectMembers } from "@/firebase/features/member"
+import { getProjectMembers, removeProjectMember } from "@/firebase/features/member"
 import { useAppSelector } from "@/store/store"
 import { DocumentData } from "firebase/firestore"
 import moment from "moment"
@@ -12,6 +12,7 @@ import { useEffect, useState } from "react"
 
 
 export default function Overview() {
+    const currentUser = useAppSelector((state) => state.authReducer.user)
     const currentProject = useAppSelector((state) => state.projectReducer)
     const [loading, setLoading] = useState(true)
     const [members, setMembers] = useState<DocumentData>([])
@@ -35,6 +36,14 @@ export default function Overview() {
         setMembers(obj)
     }
 
+    async function leaveProject() {
+        var r = confirm("Leave project?");
+        if (r === true) {
+            if (!await removeProjectMember(currentProject.id, currentUser.uid))
+                alert('Something went wrong! Please try again later.')
+        }
+    }
+    
     return loading ? <div className="content-loading flex-center"><ComponentLoading /></div> :
         <div className="overview-container">
             <div className="overview-primary">
@@ -70,7 +79,7 @@ export default function Overview() {
                     <h3>Members</h3>
                     <ul className="members">
                         {members.map((member: any) =>
-                            <li className="member" key={member.id}>
+                            <li className="member" key={member.userId}>
                                 <p>{member.username} ({member.role})</p>
                             </li>
                         )}
@@ -89,6 +98,9 @@ export default function Overview() {
                 <p className="disabled" style={{ marginLeft: 'auto' }}>
                     Created at: {moment.unix(currentProject.createdAt).format('LL')}
                 </p>
+                {currentProject.userRole == 'owner' ? null :
+                    <button style={{ alignSelf: 'end', color: 'rgb(181, 48, 44)' }} onClick={leaveProject}>Leave project</button>
+                }
             </div>
         </div>
 }

@@ -11,6 +11,7 @@ export interface ProjectState {
     boards: string[];
     requestsToJoin: string[];
     requests: boolean | undefined;
+    userRole: string | undefined;
 }
 
 const initialState: ProjectState = {
@@ -23,6 +24,7 @@ const initialState: ProjectState = {
     boards: [],
     requests: undefined,
     requestsToJoin: [],
+    userRole: undefined,
 }
  
 export const projectSlice = createSlice({
@@ -33,8 +35,11 @@ export const projectSlice = createSlice({
         setProject (state, action: PayloadAction<any>) {
             Object.assign(state, action.payload)
         },
+        setUserRole (state, action: PayloadAction<any>) {
+            state.userRole = action.payload
+        }
     }
 })
 
-export const { rollbackProject, setProject } = projectSlice.actions
+export const { rollbackProject, setProject, setUserRole } = projectSlice.actions
 export default projectSlice.reducer

@@ -22,10 +22,11 @@ export default function ModalTask() {
     const [selectedBoard, setSelectedBoard] = useState(searchParams.get('board') as string)
     const taskParam = searchParams.get('task') as string
     const [boards, setBoards] = useState<any>()
+    const [createdBy, setCreatedBy] = useState<DocumentData>()
     const [inputs, setInputs] = useState<DocumentData>({
         id: '', title: '', description: '',
         createdAt: '', createdBy: '',
-        date: '', time: '', priority: '',
+        date: '', time: '', priority: 0,
     })
     const [loading, setLoading] = useState(true)
     const errorText = 'Something went wrong! Please try again later.'
@@ -56,6 +57,9 @@ export default function ModalTask() {
         if ('tasks' in obj) {
             const taskDoc = await getDocById(taskParam, boardsRef + `${obj.id}/tasks`)
             if (!taskDoc) return replace('?');
+            const userDoc = await getDocById(taskDoc.createdBy, 'users')
+            if (!userDoc) return replace('?');
+            setCreatedBy(userDoc)
             setInputs({
                 ...taskDoc,
                 date: taskDoc.date ? moment.unix(taskDoc.date).format('yyyy-MM-DD') : '',
@@ -112,9 +116,9 @@ export default function ModalTask() {
 
     return loading ? <PageLoading /> : (
         <form className='form' action={formData => {
-                const updatedTask: {} = getFormData(formData)
-                return taskParam ? updateTask(updatedTask) : createTask(updatedTask)
-            }}
+            const updatedTask: {} = getFormData(formData)
+            return taskParam ? updateTask(updatedTask) : createTask(updatedTask)
+        }}
             style={{ borderRight: `4px solid ${boards.find((el: any) => el.id == selectedBoard).color}` }}
         >
             <div className='form-inputs'>
@@ -139,16 +143,16 @@ export default function ModalTask() {
                 <input placeholder="Title" name="title" className="title" defaultValue={inputs.title} required />
                 <div className="input-container">
                     <h3>Priority:</h3>
-                    <div className={`select-container ${inputs.priority}`}>
+                    <div className={`select-container ${inputs.priority != 0 ? `priority-${inputs.priority}` : ''}`}>
                         <select name="priority" value={inputs.priority}
-                            className={inputs.priority}
+                            className={inputs.priority != 0 ? `priority-${inputs.priority}` : ''}
                             style={inputs.priority ? {} : { opacity: 0.6 }}
                             onChange={e => setInputs(obj => ({ ...obj, priority: e.target.value }))}
                         >
-                            <option value=''>Empty</option>
-                            <option value='low'>Low</option>
-                            <option value='medium'>Medium</option>
-                            <option value='high'>High</option>
+                            <option value={0}>Empty</option>
+                            <option value={1}>Low</option>
+                            <option value={2}>Medium</option>
+                            <option value={3}>High</option>
                         </select>
                     </div>
                 </div>
@@ -173,6 +177,12 @@ export default function ModalTask() {
                     }
                 </div>
                 <textarea placeholder='Description' name='description' className="description" defaultValue={inputs.description} />
+                {!taskParam ? null :
+                    <p className="gray" style={{ alignSelf: 'end', textAlign: 'end' }}>
+                        {inputs.updatedAt ? 'Updated' : 'Created'} by: {!createdBy ? null : createdBy.username} <br/>
+                        {inputs.updatedAt ? 'Updated' : 'Created'} at: {moment.unix(inputs.updatedAt ? inputs.updatedAt : inputs.createdAt).format('ll, HH:mm')}
+                    </p>
+                }
             </div>
             <div className='form-buttons'>
                 <button className="button-secondary" type="button" onClick={() => replace('?', { scroll: false })}>

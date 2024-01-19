@@ -1,70 +1,85 @@
 import { useEffect, useState } from "react";
 import { useAppSelector } from "@/store/store";
-import { DocumentData } from "firebase/firestore";
+import { DocumentData, arrayRemove, arrayUnion, doc, updateDoc } from "firebase/firestore";
+import { FIREBASE_DB } from "@/firebase/config";
 import { getProjectRequests } from "@/firebase/features/member";
-import { DataGrid, GridActionsCellItem, GridToolbar, GridValueGetterParams, gridClasses } from "@mui/x-data-grid";
+import { DataGrid, GridActionsCellItem, GridValueGetterParams, gridClasses } from "@mui/x-data-grid";
 import moment from "moment";
 import Close from "@/assets/svg/close";
 import Tick from "@/assets/svg/tick";
-
-
-const COLORS = ['#8AB4F8', '#F28B82', '#FDD663', '#81C995', '#FF8BCB', '#C58AF9', '#FCAD70', '#78D9EC',]
+import { setDocById } from "@/firebase/features/setDoc";
+import { getDocById } from "@/firebase/features/getDoc";
+import { useRouter } from "next/navigation";
 
 
 export default function ModalRequests() {
     const currentUser = useAppSelector((state) => state.authReducer.user)
     const currentProject = useAppSelector((state) => state.projectReducer)
     const [requests, setRequests] = useState<DocumentData[]>([]);
+    const [loading, setLoading] = useState(true);
+    const { replace } = useRouter();
 
     useEffect(() => {
-        getRequests()
-    }, [])
+        if (currentProject.userRole) {
+            currentProject.userRole == 'member' ? replace('?') : getRequests()
+        }
+    }, [currentProject.requestsToJoin, currentProject.userRole])
 
     async function getRequests() {
         const arr = await getProjectRequests(currentProject.requestsToJoin)
         setRequests(arr)
+        setLoading(false)
     }
 
 
-    function acceptRequest(id: any) {
-        console.log('accept', id)
-    }
-    function declineRequest(id: any) {
-        console.log('decline', id)
+    async function actionRequests(id: any, isAccept: boolean) {
+        try {
+            setLoading(true)
+            const projectRef = doc(FIREBASE_DB, `projects/${currentProject.id}`);
+            await updateDoc(projectRef, { requestsToJoin: arrayRemove(id) });
+            if (isAccept) {
+                await Promise.all([
+                    updateDoc(projectRef, { members: arrayUnion(id) }),
+                    setDocById(`users/${id}/projects/${currentProject.id}`, {
+                        joined: moment().unix(),
+                        role: "member"
+                    })
+                ])
+            }
+        } catch (error) {
+            alert('Something went wrong! Please try again later.')
+        }
     }
 
     return (
         <div className="modal-request form">
             <DataGrid className="table"
-                loading={requests.length == 0}
+                loading={loading}
                 rows={requests}
                 columns={[
                     {
                         field: 'avatar', headerName: 'Avatar', width: 80, sortable: false, filterable: false,
-                        valueGetter: (params: GridValueGetterParams) => params.row.username[0],
+                        valueGetter: (params: GridValueGetterParams) => ({ letter: params.row.username[0], color: params.row.color }),
                         renderCell: ({ value }) => (
-                            <div className="avatar-container">
-                                <h1 className="avatar flex-center" style={{ backgroundColor: COLORS[Math.floor(Math.random() * 8)] }}>
-                                    {value}
-                                </h1>
-                            </div>
+                            <h1 className="avatar flex-center" style={{ backgroundColor: value.color }}>
+                                {value.letter}
+                            </h1>
                         ),
                     },
                     { field: 'username', headerName: 'Username', width: 200, type: "string" },
                     { field: 'email', headerName: 'Email', width: 160, type: "string" },
                     {
                         field: 'actions', headerName: 'Actions', width: 80, type: "actions", sortable: false, filterable: false,
-                        cellClassName: 'actions',
                         getActions: ({ id }) => ([
                             <GridActionsCellItem
                                 icon={<div className="request-action"><Tick /></div>}
                                 label="Accept"
-                                onClick={() => acceptRequest(id)}
+                                onClick={() => actionRequests(id, true)}
                             />,
                             <GridActionsCellItem
                                 icon={<div className="request-action"><Close /></div>}
                                 label="Decline"
-                                onClick={() => declineRequest(id)}
+                                onClick={() => actionRequests(id, false)}
                             />,
                         ])
                     },

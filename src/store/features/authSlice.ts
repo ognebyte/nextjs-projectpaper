@@ -9,6 +9,7 @@ export interface AuthState {
         email?: string,
         uid?: string,
         photoURL?: string,
+        color?: string,
     };
 }
 
