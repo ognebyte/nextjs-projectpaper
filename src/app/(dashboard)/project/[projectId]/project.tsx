@@ -12,7 +12,6 @@ import { PageLoading } from "@/app/_components/loadings";
 import { ButtonSubmit } from "@/app/_components/buttons";
 import ColorDot from "@/app/_components/colorDot";
 import Logo from "@/assets/svg/logo";
-import { getDocById } from "@/firebase/features/getDoc";
 
 
 const TABS = [

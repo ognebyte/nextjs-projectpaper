@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Sidebar from "@/app/_components/sidebar";
 import Menu from "@/assets/svg/menu";

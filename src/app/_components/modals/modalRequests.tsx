@@ -8,7 +8,6 @@ import moment from "moment";
 import Close from "@/assets/svg/close";
 import Tick from "@/assets/svg/tick";
 import { setDocById } from "@/firebase/features/setDoc";
-import { getDocById } from "@/firebase/features/getDoc";
 import { useRouter } from "next/navigation";
 
 

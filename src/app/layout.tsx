@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import '@/styles/index.scss'
 import App from '@/app/app'
 import ReduxProvider from '@/app/provider'
+import { Suspense } from 'react'
+import { PageLoading } from './_components/loadings'
 
 
 export const metadata: Metadata = {
@@ -17,11 +19,13 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>
-                <ReduxProvider>
-                    <App>
-                        {children}
-                    </App>
-                </ReduxProvider>
+                <Suspense fallback={<PageLoading />}>
+                    <ReduxProvider>
+                        <App>
+                            {children}
+                        </App>
+                    </ReduxProvider>
+                </Suspense>
             </body>
         </html>
     )

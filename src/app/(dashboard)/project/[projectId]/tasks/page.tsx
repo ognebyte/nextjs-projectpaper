@@ -1,6 +1,6 @@
 'use client'
 
-import { ReactElement, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { DocumentData, collection, collectionGroup, documentId, onSnapshot, query, where } from "firebase/firestore";
 import { FIREBASE_DB } from "@/firebase/config";

@@ -8,13 +8,10 @@ import ColorPicker from "@/app/_components/colorPicker"
 import Trash from "@/assets/svg/trash"
 import { PageLoading } from "@/app/_components/loadings"
 import { ButtonSubmit } from "@/app/_components/buttons"
-import { doc, onSnapshot } from "firebase/firestore"
-import { FIREBASE_DB } from "@/firebase/config"
 
 
 export default function Settings() {
     const currentProject = useAppSelector((state) => state.projectReducer)
-    const currentUser = useAppSelector((state) => state.authReducer.user)
     const { replace } = useRouter()
     const errorText = 'Something went wrong! Please try again later.'
     const [color, setColor] = useState(currentProject.color)

@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import { useAppSelector } from "@/store/store";
-import Image from "next/image";
 import Link from "next/link";
 
 import Projects from "@/assets/svg/projects";
