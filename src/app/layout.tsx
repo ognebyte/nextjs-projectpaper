@@ -4,6 +4,7 @@ import App from '@/app/app'
 import ReduxProvider from '@/app/provider'
 import { Suspense } from 'react'
 import { PageLoading } from './_components/loadings'
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 
 export const metadata: Metadata = {
@@ -26,6 +27,7 @@ export default function RootLayout({
                         </App>
                     </ReduxProvider>
                 </Suspense>
+                <SpeedInsights />
             </body>
         </html>
     )

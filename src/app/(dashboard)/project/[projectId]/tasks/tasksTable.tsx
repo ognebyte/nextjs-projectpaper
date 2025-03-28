@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { DocumentData } from "firebase/firestore";
 import { DataGrid, GridActionsCellItem, GridComparatorFn, GridToolbar, GridValueGetterParams, gridClasses } from '@mui/x-data-grid';

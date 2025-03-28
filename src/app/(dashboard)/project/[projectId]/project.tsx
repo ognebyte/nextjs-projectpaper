@@ -1,6 +1,6 @@
 'use client'
 
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import { doc, onSnapshot } from "firebase/firestore";
@@ -26,11 +26,17 @@ export default function Project({ children, params, sendRequest }: { children: R
     const currentUser = useAppSelector((state) => state.authReducer.user)
     const currentProject = useAppSelector((state) => state.projectReducer)
     const pathname = usePathname()
-    const { push, replace } = useRouter()
+    const { replace } = useRouter()
     const projectPath = `/project/${params.projectId}`
     const [isMember, setIsMember] = useState(false);
     const [currentTab, setCurrentTab] = useState('');
     const [loading, setLoading] = useState(true);
+
+    const [currentChildren, setCurrentChildren] = useState(children);
+
+    useEffect(() => {
+        setCurrentChildren(children);
+    }, [children]);
 
     useEffect(() => {
         var tab = pathname.replace(projectPath, '')
@@ -109,9 +115,7 @@ export default function Project({ children, params, sendRequest }: { children: R
             </nav>
 
             <div className="tab-content">
-                <Suspense fallback={<PageLoading />}>
-                    {children}
-                </Suspense>
+                {currentChildren}
             </div>
         </div>
 }

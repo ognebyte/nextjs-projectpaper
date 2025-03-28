@@ -1,14 +1,22 @@
-export function PageLoading({ color = '#111111' }) {
+export function PageLoading() {
     return (
         <div className="page-loading flex-center">
             <div className="svg-container">
-                <ComponentLoading color={color} />
+                <Loading />
             </div>
         </div>
     )
 }
 
-export function ComponentLoading({ color = '#111111' }) {
+export function ComponentLoading() {
+    return (
+        <div className="content-loading flex-center">
+            <Loading />
+        </div>
+    )
+}
+
+export function Loading({ color = '#111111' }) {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="64px" height="64px" viewBox="0 0 128 128" >
             <g>
@@ -27,7 +35,5 @@ export function ComponentLoading({ color = '#111111' }) {
                 <animateTransform attributeName="transform" type="rotate" values="0 64 64;30 64 64;60 64 64;90 64 64;120 64 64;150 64 64;180 64 64;210 64 64;240 64 64;270 64 64;300 64 64;330 64 64" calcMode="discrete" dur="720ms" repeatCount="indefinite"></animateTransform>
             </g>
         </svg>
-
-
     )
 }

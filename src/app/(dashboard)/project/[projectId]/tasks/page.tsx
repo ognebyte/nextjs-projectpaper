@@ -66,7 +66,7 @@ export default function Tasks() {
         const res = await deleteDocBoard(currentProject.id, boardId, [...currentProject.boards])
     }
 
-    return loading ? <div className="content-loading flex-center"><ComponentLoading /></div> :
+    return loading ? <ComponentLoading /> :
         <div className="tasks-container">
             <nav className="tasks-type">
                 <button className={`button-type ${isBoardsVertical ? 'active' : ''}`}

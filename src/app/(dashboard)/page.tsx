@@ -35,11 +35,7 @@ export default function Dashboard() {
 
     return (
         <div className='dashboard-container'>
-            {loading ?
-                <div className="dashboard-loading">
-                    <ComponentLoading />
-                </div>
-                :
+            {loading ? <ComponentLoading /> :
                 userProjects?.length == 0 ?
                     <div className="dashboard-empty">
                         <p>You have no projects,</p>

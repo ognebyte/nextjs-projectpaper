@@ -6,7 +6,7 @@ import { useAppSelector } from "@/store/store"
 import { deleteDocProject, updatedDocProject } from "@/firebase/features/project"
 import ColorPicker from "@/app/_components/colorPicker"
 import Trash from "@/assets/svg/trash"
-import { PageLoading } from "@/app/_components/loadings"
+import { ComponentLoading } from "@/app/_components/loadings"
 import { ButtonSubmit } from "@/app/_components/buttons"
 
 
@@ -19,7 +19,10 @@ export default function Settings() {
 
     useEffect(() => {
         if (currentProject.userRole == 'member') return replace(`/project/${currentProject.id}`)
+            setTimeout(() => {
         setLoading(false)
+                
+            }, 1000);
     }, [currentProject.userRole])
 
     function getFormData(formData: FormData) {
@@ -44,23 +47,23 @@ export default function Settings() {
         }
     }
 
-    return loading ? <PageLoading /> :
+    return loading ? <ComponentLoading /> :
         <div className="settings-container">
             <form className='form' action={formData => {
                 const updatedBoard: {} = getFormData(formData)
                 updateProject(updatedBoard)
             }}>
                 <div className="form-inputs">
-                    <input className="title" name="title" placeholder="Title"
+                    <input id="title" name="title" className="title" placeholder="Title"
                         defaultValue={currentProject.title} type="text" maxLength={20} required
                     />
-                    <textarea className="description" name='description' placeholder='Description'
+                    <textarea id="description" className="description" name='description' placeholder='Description'
                         defaultValue={currentProject.description} maxLength={1000}
                     />
                     <ColorPicker defaultValue={color} onChange={(e: any) => setColor(e)} />
                     <div className="requests">
                         <p>Users can send requests to join:</p>
-                        <input type='checkbox' name='requests' defaultChecked={currentProject.requests} />
+                        <input id="requests" type='checkbox' name='requests' defaultChecked={currentProject.requests} />
                     </div>
                 </div>
                 <div className="form-buttons">

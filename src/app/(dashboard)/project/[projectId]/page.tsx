@@ -1,7 +1,7 @@
 'use client'
 
 import ColorDot from "@/app/_components/colorDot"
-import { ComponentLoading, PageLoading } from "@/app/_components/loadings"
+import { ComponentLoading } from "@/app/_components/loadings"
 import { sortArrByArrOrder } from "@/app/_utils/sort"
 import { getCollectionBoards } from "@/firebase/features/board"
 import { getProjectMembers, removeProjectMember } from "@/firebase/features/member"
@@ -44,7 +44,7 @@ export default function Overview() {
         }
     }
     
-    return loading ? <div className="content-loading flex-center"><ComponentLoading /></div> :
+    return loading ? <ComponentLoading /> :
         <div className="overview-container">
             <div className="overview-primary">
                 <h2 className="title">

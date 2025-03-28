@@ -11,10 +11,7 @@ import moment from "moment";
 
 export default function Members() {
     const currentProject = useAppSelector((state) => state.projectReducer)
-    const currentUser = useAppSelector((state) => state.authReducer.user)
-    const sitePath = 'http://localhost:3000'
     const projectPath = 'project/' + currentProject.id
-    const projectLink = sitePath + '/' + projectPath
     const [members, setMembers] = useState<DocumentData[]>([]);
 
     useEffect(() => {
@@ -29,7 +26,7 @@ export default function Members() {
     function copyLink() {
         const copyButton = document.getElementById('copyButton')
         if (!copyButton) return alert('Something went wrong! Please try again later.')
-        navigator.clipboard.writeText(projectLink)
+        navigator.clipboard.writeText(document.URL)
         copyButton.innerText = 'Copied!'
         setTimeout(() => {
             copyButton.innerText = 'Copy'
@@ -60,7 +57,7 @@ export default function Members() {
             {!currentProject.userRole ? null : currentProject.userRole == 'member' ? null : !currentProject.requests ? null :
                 <div className="project-link">
                     <p>Invite link:</p>
-                    <input className="link" type="text" defaultValue={projectPath} readOnly={true} />
+                    <input id="link" className="link" type="text" defaultValue={projectPath} readOnly={true} />
                     <button id="copyButton" className="button-default" onClick={copyLink}>Copy</button>
                 </div>
             }
@@ -95,7 +92,7 @@ export default function Members() {
                                 />,
                                 <GridActionsCellItem
                                     label="Remove member"
-                                    style={{color: 'rgb(181, 48, 44)'}}
+                                    style={{ color: 'rgb(181, 48, 44)' }}
                                     onClick={() => remove(params.id)}
                                     disabled={!currentProject.userRole ? true : (params.row.role == 'admin' && currentProject.userRole == 'admin' ? true : false)}
                                     showInMenu
